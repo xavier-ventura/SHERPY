@@ -94,8 +94,9 @@ def family_exposure(case_id: str) -> dict:
     for d in walk(inv):
         sym = first(d, ("symbol", "ticker"))
         val = first(d, ("value", "marketValue", "market_value", "amount"))
-        if isinstance(sym, str) and isinstance(val, (int, float)):
-            if not any(w in sym.lower() for w in CASH_WORDS):
+        if isinstance(sym, str) and sym.strip() and isinstance(val, (int, float)):
+            label = f"{sym} {d.get('name', '')}".lower()   # cash has no symbol or a name like "Cash"
+            if not any(w in label for w in CASH_WORDS):
                 holdings[sym.upper()] = holdings.get(sym.upper(), 0.0) + float(val)
 
     tech = tech_exposure(case_id) or {}            # reuses tracker's sectorConcentration reader
@@ -107,7 +108,7 @@ def family_exposure(case_id: str) -> dict:
         "holdings": holdings,
         "tech_pct": (tech.get("weight") or 0.0) * 100,
         "tech_severity": tech.get("severity"),
-        "risk": build_profile(case_id).get("risk_by_person", {}),   # same source as tracker.py
+        "risk": {k: v for k, v in build_profile(case_id).get("risk_by_person", {}).items() if v},   # adults only
         "monthly_out": monthly_out,
     }
 
@@ -120,6 +121,8 @@ def market_event(case_id: str, exp: dict, changes: dict, ts, shock: float | None
         return None
     worst_sym = min(moves, key=moves.get)
     worst = moves[worst_sym]
+    if shock is not None:   # simulated crash: lead with the broad market, not NVDA (families hold little NVDA)
+        worst_sym, worst = "VTI", -shock
 
     # a simulated shock hits the whole invested total (as calc_market_shock); a real move hits
     # what the family holds in that ticker, or the tech content of its portfolio if it holds none

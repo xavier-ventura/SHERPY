@@ -1,0 +1,179 @@
+[
+  {
+    "id": "daniel-emily-johnson:nvda-drop-30",
+    "family_id": "daniel-emily-johnson",
+    "source": "queue",
+    "type": "market_drop",
+    "headline": "Nvidia falls 30% in two weeks",
+    "priority": "urgent",
+    "priority_score": 100,
+    "reasons": [
+      "tipo market_drop (+70)",
+      "tecnología = 35.6% de sus acciones, severidad Significant (+40)",
+      "evento simulado (-5)"
+    ],
+    "simulated": true,
+    "draft": "Daniel and Emily — Nvidia has fallen 30% in two weeks. This kind of drop is something your plan was built for, so there’s no immediate action needed. Because technology is 35.6% of your stock allocation, the decline is significant for your balances; I’m monitoring your accounts closely. Let’s do a brief 15-minute call to review — what time tomorrow works?",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:43:53.004515+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "michael-carter:plan-michael-carter-purchase-2027",
+    "family_id": "michael-carter",
+    "source": "queue",
+    "type": "plan_date",
+    "headline": "Purchase a home in about 6 weeks",
+    "priority": "urgent",
+    "priority_score": 100,
+    "reasons": [
+      "objetivo purchase (+75)",
+      "ocurre en 41 días (+15)",
+      "conecta con sus preocupaciones: purchase (+10)"
+    ],
+    "simulated": false,
+    "draft": "Michael — Your home purchase is about six weeks away (41 days). This ties to our cash concern: you have $30,000 (about 3.2 months) and are $16,530 short of a 5–6 month reserve. For the January 2027 goals the target is $163,330–$172,636 and current cash would cover 0 months after them. Let’s have a short call this week to review cash timing and next steps.",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:44:06.203963+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "samantha-lewis:market-samantha-lewis-shock",
+    "family_id": "samantha-lewis",
+    "source": "queue",
+    "type": "market_drop",
+    "headline": "Markets drop 20%: what it means for you",
+    "priority": "urgent",
+    "priority_score": 85,
+    "reasons": [
+      "NVDA -32.0% vs previous close (+60)",
+      "technology = 31% of their stocks, severity Elevated",
+      "also down: VTI -20.0%, QQQ -25.0%",
+      "conecta con sus preocupaciones: invest (+10)"
+    ],
+    "simulated": true,
+    "draft": "Samantha — A 20% market drop is unsettling but expected; our plan was built for swings like this. Your invested portfolio shows an estimated paper loss of $67,000 (cash excluded). Technology is about 31% of your stocks and NVDA is down 32%, which raises volatility given your Growth profile. Nothing needs doing right now; I’m watching your accounts. Let’s schedule a short call this week to review.",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:44:19.767354+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "michael-carter:nvda-drop-30",
+    "family_id": "michael-carter",
+    "source": "queue",
+    "type": "market_drop",
+    "headline": "Nvidia falls 30% in two weeks",
+    "priority": "high",
+    "priority_score": 77,
+    "reasons": [
+      "tipo market_drop (+70)",
+      "tecnología = 33.0% de sus acciones, severidad Elevated (+12)",
+      "evento simulado (-5)"
+    ],
+    "simulated": true,
+    "draft": "Michael — A 30% drop in Nvidia is unsettling but expected swings are part of the plan we built. Your portfolio is more volatile because technology is about 33% of your stocks, and this is an elevated move. With your home purchase in about six weeks, let’s confirm your available cash and any short‑term needs. I’m watching this closely. Can we do a 15‑minute call this week to review?",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:44:35.182556+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "timothy-melanie-weah:nvda-drop-30",
+    "family_id": "timothy-melanie-weah",
+    "source": "queue",
+    "type": "market_drop",
+    "headline": "Nvidia falls 30% in two weeks",
+    "priority": "high",
+    "priority_score": 77,
+    "reasons": [
+      "tipo market_drop (+70)",
+      "tecnología = 30.0% de sus acciones, severidad Elevated (+12)",
+      "evento simulado (-5)"
+    ],
+    "simulated": true,
+    "draft": "Timothy and Melanie — Nvidia fell 30% in two weeks. This kind of market volatility was expected in your plan. Because technology is about 30% of your stock holdings, your long-term accounts may be more affected than usual. No immediate action is required; I am watching your accounts. If you’d like, let’s have a short call tomorrow to review the impact on your goals.",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:44:48.298642+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "samantha-lewis:plan-samantha-lewis-college-2028",
+    "family_id": "samantha-lewis",
+    "source": "queue",
+    "type": "plan_date",
+    "headline": "College Ava in about 21 months",
+    "priority": "high",
+    "priority_score": 75,
+    "reasons": [
+      "objetivo college (+65)",
+      "conecta con sus preocupaciones: college (+10)"
+    ],
+    "simulated": false,
+    "draft": "Samantha — Ava’s college is about 21 months away. Our plan shows a $98,838 college funding gap and the 529 balance is $0. After setting aside $18,500 of goals you’d have only $750 above your cash reserve. This makes a near-term funding review sensible. I’m watching your plan; let’s schedule a short 20-minute call to go over options and next steps. When are you available?",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:45:04.576178+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "samantha-lewis:ss-wage-base-2027",
+    "family_id": "samantha-lewis",
+    "source": "queue",
+    "type": "legal_change",
+    "headline": "Social Security wage base rises to $192,300 in 2027",
+    "priority": "high",
+    "priority_score": 70,
+    "reasons": [
+      "tipo legal_change (+60)",
+      "conecta con sus preocupaciones: retirement (+10)"
+    ],
+    "simulated": false,
+    "draft": "Samantha — The Social Security wage base will rise to $192,300 in 2027. I’m tracking this legal change because your plan shows Social Security currently covers about 25% of your $153,672 yearly need. No immediate action required; I’m watching for any implications to your retirement outlook. Let’s have a brief 20-minute call this week to review whether this affects your plan.",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:45:18.402655+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "daniel-emily-johnson:life-daniel-emily-johnson-oliver-11",
+    "family_id": "daniel-emily-johnson",
+    "source": "queue",
+    "type": "life_moment",
+    "headline": "Oliver is 11: seven years to college",
+    "priority": "medium",
+    "priority_score": 50,
+    "reasons": [
+      "hito de los 11 años (+40)",
+      "conecta con sus preocupaciones: college (+10)"
+    ],
+    "simulated": false,
+    "draft": "Daniel and Emily — Oliver is 11, so college is about seven years away. You have $30,000 in his 529 and add $8,000 a year; our plan still shows a $106,552 college funding gap. This is a moderate concern we can address calmly. Would you both have 20 minutes this week for a short call to review options?",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:45:29.453964+00:00",
+    "decided_at": null
+  },
+  {
+    "id": "timothy-melanie-weah:plan-timothy-melanie-weah-purchase-2028",
+    "family_id": "timothy-melanie-weah",
+    "source": "queue",
+    "type": "plan_date",
+    "headline": "Purchase a vehicle in about 20 months",
+    "priority": "medium",
+    "priority_score": 50,
+    "reasons": [
+      "objetivo purchase (+40)",
+      "conecta con sus preocupaciones: purchase (+10)"
+    ],
+    "simulated": false,
+    "draft": "Timothy and Melanie — your vehicle purchase is about 20 months away. It connects to your purchase goal and your cash-planning concern. No urgent moves are needed today; I’m watching your accounts and will ensure planning stays conservative to suit Melanie’s preference. Can we schedule a 20-minute call to review the savings path and confirm priorities?",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T13:45:45.189213+00:00",
+    "decided_at": null
+  }
+]

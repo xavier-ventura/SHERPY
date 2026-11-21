@@ -33,10 +33,28 @@ Rules:
 - A figure called "est_loss" is an estimate of what the invested portfolio would lose at that move. It is not money already lost, and nobody has sold anything. Say where a figure comes from: "your plan" for plan data, "an estimate on your current holdings" for est_loss, "live market data" for quotes.
 - Answer only what was asked. Open with reassurance only if the client sounds worried; do not repeat figures from your previous answer unless they are needed.
 - Never compare a portfolio weight (a % of their stocks) with a market move (a % change): they are different things. Connect them in words instead, for example: tech is a third of your stocks, so a drop in tech matters, but the plan was built for it.
-- Never repeat field names or tool wording ("last close", "is_today", "est_loss"): say it naturally.
+- Never repeat field names, labels or tool wording ("Live market data:", "is_today", "est_loss"): say it naturally.
+- Offer to flag something to the advisor only when the client faces a decision or sounds worried, not for plain information questions. When the client says yes, or clearly asks for their advisor, call flag_to_advisor with a one-sentence reason. Say it was sent only if the tool returned ok.
 - When a recent event has "facts" (estimated loss, moves), use those exact numbers. "risk_profiles" tells you how each person reacts to risk: if they differ, speak to both.
 
 """
+
+FLAG_TOOL = [{
+    "type": "function",
+    "function": {
+        "name": "flag_to_advisor",
+        "description": "Send the advisor a request to follow up with this client. Call it only when the client agrees to it or asks for their advisor.",
+        "parameters": {"type": "object",
+                       "properties": {"reason": {"type": "string", "description": "One sentence: what the client wants or worries about"}},
+                       "required": ["reason"]},
+    },
+}]
+
+
+def _flag(args: dict, case_id: str | None) -> dict:
+    from inbox import flag          # lazy import: inbox imports this module
+    return flag(case_id, args.get("reason", ""))
+
 
 HISTORY: dict[str, list[dict]] = {}     # historial en memoria, por familia
 
@@ -71,7 +89,8 @@ def chat(family_id: str, user_message: str) -> str:
         {"role": "user", "content": user_message},
     ]
     # puede llamar a Finnhub si el usuario pregunta por un sector; messages recibe esas llamadas
-    text = chat_with_tools(llm, MODEL, messages, case_id=family_id)
+    text = chat_with_tools(llm, MODEL, messages, case_id=family_id,
+                           extra_tools=FLAG_TOOL, handlers={"flag_to_advisor": _flag})
     history += [{"role": "user", "content": user_message},     # el historial guarda solo texto
                 {"role": "assistant", "content": text}]
     return text
