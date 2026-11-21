@@ -41,7 +41,7 @@ Se expone como una **API HTTP con streaming** que consume un cliente externo (fu
 | Elección de fuente | ✅ Funciona | El agente decide en cada consulta `local` (rápido) o `mcp` (dato puntual) |
 | Agente LLM | ✅ Funciona | LLM de Sherpas (`gpt-5-mini`) + respaldo opcional Gemini / Groq |
 | API HTTP | ✅ Funciona | `/health`, `/cases`, `/chat` con Server-Sent Events |
-| Tests | ✅ 48 en verde | En la rama `test`, sin red |
+| Tests | ✅ 49 en verde | En la rama `test`, sin red |
 | Hosting | ⏳ Pendiente | Aún sin desplegar |
 | Cliente / frontend | ➖ Fuera de este repo | — |
 
@@ -405,7 +405,7 @@ git switch test
 .venv/bin/pytest
 ```
 
-48 tests, sin red (el agente usa `TestModel` y los datos locales):
+49 tests, sin red (el agente usa `TestModel` y los datos locales):
 
 | Archivo | Tests | Qué comprueba |
 |---|---:|---|
@@ -414,18 +414,18 @@ git switch test
 | `test_emergency.py` | 5 | Meses de colchón = Sherpas (×4), hueco |
 | `test_debt.py` | 6 | Amortización, cuota insuficiente, fecha de pago = Sherpas, ahorro con extra |
 | `test_goals.py` | 6 | Universidad (529/UGMA), compra de casa, jubilación |
-| `test_market.py` | 3 | Caída sobre posiciones, respaldo con cuentas, validación |
+| `test_market.py` | 4 | Caída sobre posiciones sin efectivo, cuenta de efectivo excluida, respaldo con cuentas, validación |
 | `test_source.py` | 8 | Elección local/MCP, caché, respaldo si el MCP cae, Markdown en texto plano |
 | `test_api.py` | 5 | `/health`, `/cases`, `/chat` (stream, fuente, historial), 404 |
 
 ```mermaid
 pie showData
-    title "Tests por área (48)"
+    title "Tests por área (49)"
     "Impuestos y FICA" : 15
     "Fondo de emergencia" : 5
     "Deuda" : 6
     "Objetivos" : 6
-    "Mercado" : 3
+    "Mercado" : 4
     "Fuente de datos" : 8
     "API" : 5
 ```
