@@ -1,0 +1,21 @@
+[
+  {
+    "id": "nvda-drop-30",
+    "type": "market_drop",
+    "headline": "Nvidia falls 30% in two weeks",
+    "sector": "technology",
+    "keywords": ["technology", "concentration"],
+    "simulated": true,
+    "family_ids": ["daniel-emily-johnson", "michael-carter", "samantha-lewis", "timothy-melanie-weah"]
+  },
+  {
+    "id": "ss-wage-base-2027",
+    "type": "legal_change",
+    "headline": "Social Security wage base rises to $192,300 in 2027",
+    "source": "legal-values.json",
+    "keywords": ["retirement"],
+    "simulated": false,
+    "applies_to": {"min_salary": 192300},
+    "numbers": {"ss_wage_base_2027": 192300, "extra_social_security_tax_per_year": 484}
+  }
+]
