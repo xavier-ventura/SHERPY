@@ -22,6 +22,8 @@ class Settings(BaseSettings):
     # Copiar el ID exacto de AI Studio / Groq: cambian a menudo.
     gemini_model: str = "gemini-flash-latest"
     groq_model: str = "openai/gpt-oss-120b"
+    # Orígenes permitidos para llamar desde el navegador (Lovable, localhost…), separados por comas. "*" = todos.
+    cors_origins: str = "*"
 
 
 @lru_cache
