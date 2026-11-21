@@ -27,6 +27,7 @@ from sherpy.data.source import CaseSource
 MAX_TICKERS = 6          # límite gratuito de Finnhub: 60 peticiones/min
 NEWS_PER_TICKER = 5
 GENERAL_NEWS = 15
+NEWS_LANGUAGE = "en"     # la sección de noticias SIEMPRE va en inglés, pida lo que pida el cliente
 FEED_CACHE_TTL_S = 900.0  # 15 min: entrar en la sección de noticias no relanza el LLM cada vez
 _feed_cache: dict[tuple[str, str, int], tuple[float, NewsFeed]] = {}
 
@@ -60,10 +61,10 @@ class NewsFeed(BaseModel):
 
 class _Pick(BaseModel):
     id: str = Field(description="id EXACTO de la noticia elegida (campo `id` de la lista).")
-    headline: str = Field(description="Titular claro, en el idioma pedido.")
-    summary: str = Field(description="Resumen breve (1-2 frases), en el idioma pedido.")
-    why_it_matters: str = Field(description="Por qué afecta a ESTA familia, con datos concretos de su perfil.")
-    related_topic_or_ticker: str = Field(description='Ticker (p. ej. "VTI") o tema (p. ej. "Tipos de interés").')
+    headline: str = Field(description="Clear headline, in ENGLISH.")
+    summary: str = Field(description="Short summary (1-2 sentences), in ENGLISH.")
+    why_it_matters: str = Field(description="Why it matters to THIS family, with concrete facts from its profile, in ENGLISH.")
+    related_topic_or_ticker: str = Field(description='Ticker (e.g. "VTI") or topic in ENGLISH (e.g. "Interest rates").')
 
 
 _TAG_RE = re.compile(r"</?[A-Za-z_][\w-]*>")
@@ -100,8 +101,10 @@ Reglas:
 - Lenguaje de persona, sin detalles técnicos del sistema: nada de nombres de campos, secciones (D4, score…),
   herramientas ni JSON. Fechas en lenguaje natural.
 - No copies etiquetas internas en inglés ni entre comillas ('critical', 'vulnerable', 'Growth', 'Moderate'…):
-  tradúcelas a lenguaje normal ("su situación financiera es delicada", "perfil de inversión de crecimiento").
+  tradúcelas a lenguaje normal ("your finances are in a delicate spot", "growth investment profile").
 - Texto plano: sin etiquetas XML/HTML ni Markdown.
+- IDIOMA: escribe TODO en INGLÉS (headline, summary, why_it_matters y related_topic_or_ticker), aunque el perfil, las
+  instrucciones o el estilo estén en español. Temas en inglés: "Interest rates", "Inflation", "Housing", "Savings".
 - Ordena de más a menos relevante. Sin duplicados del mismo hecho.
 - Procura variedad: además de las noticias de su cartera, si hay alguna relevante de tipos de interés, inflación,
   vivienda, impuestos o empleo que conecte con sus deudas, liquidez u objetivos, incluye al menos una.
@@ -200,6 +203,7 @@ async def recopilar_noticias(perfil: dict[str, Any], dias: int = 7) -> tuple[lis
 async def generar_noticias(source: CaseSource, case_id: str, model: Model | None = None, language: str = "es",
                            max_items: int = 6, use_cache: bool = True) -> NewsFeed:
     """Noticias relevantes para `case_id`, explicadas para esa familia y con su adaptación léxica por edad."""
+    language = NEWS_LANGUAGE  # siempre inglés (se ignora el idioma pedido)
     key = (case_id, language, max_items)
     hit = _feed_cache.get(key)
     if use_cache and hit and time.monotonic() - hit[0] < FEED_CACHE_TTL_S:
@@ -220,7 +224,7 @@ async def generar_noticias(source: CaseSource, case_id: str, model: Model | None
     instructions = NEWS_INSTRUCTIONS + "\n" + obtener_perfil_lexico_adultos(case)
     agent: Agent[None, _Selection] = Agent(model, output_type=_Selection, instructions=instructions, retries=2)
     prompt = (
-        f"Idioma de la respuesta: {language}. Elige como máximo {max_items} noticias.\n\n"
+        f"Response language: ENGLISH (all fields). Choose at most {max_items} news items.\n\n"
         f"PERFIL DE LA FAMILIA:\n{json.dumps(perfil, ensure_ascii=False, default=str)}\n\n"
         "NOTICIAS:\n" + json.dumps([{k: n[k] for k in ("id", "headline", "summary", "source", "datetime", "related")}
                                     for n in raw], ensure_ascii=False)
