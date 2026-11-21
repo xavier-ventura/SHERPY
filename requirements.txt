@@ -1,26 +1,7 @@
 # requirements.txt
-
-# Entorno y datos
 python-dotenv
-pydantic>=2
-requests
-pandas
-
-# Acceso a los casos (MCP)
-mcp
-
-# IA (proxy de Sherpas, compatible con OpenAI)
 openai
-langchain>=1.0
-langchain-openai
-
-# Mercado
-yfinance
-websocket-client
-
-# Opcional
-# scikit-learn        # perfilado / ranking con ML clásico
-# fastapi             # solo si exponéis un endpoint /market
-# uvicorn
-# nest-asyncio        # solo si usáis asyncio dentro de Jupyter
-# ipykernel           # solo si usáis notebooks
+requests
+pydantic>=2
+fastapi
+uvicorn
