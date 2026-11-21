@@ -29,6 +29,7 @@ from pydantic_ai import (
 
 from sherpy.agent.agent import NoModelConfigured, build_agent
 from sherpy.agent.deps import AgentDeps
+from sherpy.api.market import router as market_router
 from sherpy.api.schemas import ChatRequest, HealthResponse
 from sherpy.api.voice import router as voice_router
 from sherpy.config import get_settings
@@ -67,6 +68,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(voice_router)
+app.include_router(market_router)
 
 
 def _sse(event: str, data: Any) -> str:
