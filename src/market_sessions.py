@@ -55,7 +55,6 @@ def broad_pct(moves: dict, kind: str) -> float:
     m = moves.get("VTI", {})
     return m.get("open_vs_prev_close_pct", m.get("vs_prev_close_pct", 0.0))
 
-
 def build_session_alerts(kind: str, shock: float | None = None) -> int:
     moves = market_moves(kind, shock)
     if not moves:

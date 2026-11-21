@@ -8,19 +8,22 @@ from cases import list_case_ids, load_json
 TODAY = date(2026, 11, 21)
 OUT = Path(__file__).resolve().parent.parent / "data" / "events_auto.json"
 
-# ---------- configuración de prioridad (ajustad estos números) ----------
+# ---------- priority settings (tune these numbers) ----------
+DEFAULT_GOAL_BASE = 30
+
+
 def goal_base(g: dict) -> int:
     gtype, sub = str(g.get("goalType", "")), str(g.get("subType", ""))
     if sub == "REAL_ESTATE_PURCHASE":
         return 75
-    if gtype == "PURCHASE":          # coche u otras compras
+    if gtype == "PURCHASE":          # car or other purchases
         return 40
     return {"COLLEGE": 65, "RETIREMENT": 55}.get(gtype, DEFAULT_GOAL_BASE)
 
-SKIP_GOALS = ("BANKRUPTCY", "VACATION")   # no aportan como evento
-DEFAULT_GOAL_BASE = 30
 
-CHILD_MILESTONES = {     # edad: (texto, peso base)
+SKIP_GOALS = ("BANKRUPTCY", "VACATION")   # not useful as events
+
+CHILD_MILESTONES = {     # age: (text, base weight)
     11: ("seven years to college", 40),
     16: ("two years to college", 60),
     18: ("has turned 18: time to review insurance and who is responsible for what", 55),
@@ -30,7 +33,7 @@ CHILD_MILESTONES = {     # edad: (texto, peso base)
 LEVELS = [(80, "urgent"), (60, "high"), (40, "medium"), (0, "low")]
 
 
-# ---------- utilidades ----------
+# ---------- helpers ----------
 
 def level_for(score: int) -> str:
     return next(name for threshold, name in LEVELS if score >= threshold)
@@ -60,7 +63,7 @@ def with_priority(event: dict, score: int, reasons: list[str]) -> dict:
     return event
 
 
-# ---------- eventos del plan (objetivos con fecha) ----------
+# ---------- plan events (goals with a date) ----------
 
 def goal_events(case_id: str, horizon_days: int = 730) -> list[dict]:
     fh = load_json(case_id, "financial-health")
@@ -75,7 +78,7 @@ def goal_events(case_id: str, horizon_days: int = 730) -> list[dict]:
             continue
 
         base = goal_base(g)
-        score, reasons = base, [f"objetivo {gtype.lower()} (+{base})"]
+        score, reasons = base, [f"goal: {gtype.lower()} (+{base})"]
 
         if n <= 30:
             bonus = 25
@@ -87,14 +90,14 @@ def goal_events(case_id: str, horizon_days: int = 730) -> list[dict]:
             bonus = 0
         if bonus:
             score += bonus
-            reasons.append(f"ocurre en {n} días (+{bonus})")
+            reasons.append(f"happens in {n} days (+{bonus})")
 
         ev = {
             "id": f"plan-{case_id}-{gtype.lower()}-{d.year}",
             "type": "plan_date",
             "headline": f"{g.get('name', gtype)} {friendly_time(n)}",
             "days_away": n,
-            "keywords": [gtype.lower()],   # se cruza con las preocupaciones O1, O2... de persona.md
+            "keywords": [gtype.lower()],   # matched against the persona concerns O1, O2...
             "simulated": False,
             "family_ids": [case_id],
         }
@@ -102,7 +105,7 @@ def goal_events(case_id: str, horizon_days: int = 730) -> list[dict]:
     return events
 
 
-# ---------- eventos de vida (hijos) ----------
+# ---------- life events (children) ----------
 
 def child_events(case_id: str) -> list[dict]:
     fh = load_json(case_id, "financial-health")
@@ -122,7 +125,7 @@ def child_events(case_id: str) -> list[dict]:
             "simulated": False,
             "family_ids": [case_id],
         }
-        events.append(with_priority(ev, base, [f"hito de los {age} años (+{base})"]))
+        events.append(with_priority(ev, base, [f"milestone at age {age} (+{base})"]))
     return events
 
 
@@ -137,7 +140,7 @@ if __name__ == "__main__":
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(all_events, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"{len(all_events)} eventos generados\n")
+    print(f"{len(all_events)} events generated\n")
     for e in all_events:
         print(f"[{e['priority'].upper():6} {e['priority_score']:3}] {e['family_ids'][0]:22} {e['headline']}")
         print("          ", "; ".join(e["priority_reasons"]))

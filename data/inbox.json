@@ -8,15 +8,15 @@
     "priority": "urgent",
     "priority_score": 100,
     "reasons": [
-      "tipo market_drop (+70)",
-      "tecnología = 35.6% de sus acciones, severidad Significant (+40)",
-      "evento simulado (-5)"
+      "event type market_drop (+70)",
+      "technology = 35.6% of their stocks, severity Significant (+40)",
+      "simulated event (-5)"
     ],
     "simulated": true,
-    "draft": "Daniel and Emily — Nvidia has fallen about 30% in two weeks. Your plan was built for market drops, so nothing needs doing today; I’m watching. Technology is 35.6% of your stock holdings, so this move is significant for the portfolio. Emily, I know this feels worrying; we are prepared. Next step: let’s have a short call to review your exposure and any questions.",
+    "draft": "Daniel and Emily — Nvidia is down about 30% over two weeks. Volatility like this is normal and our plan was built for it. Emily, I know you prefer caution. Technology is 35.6% of your stock exposure, so the move matters to your portfolio but doesn’t demand immediate action. I’m watching your accounts and will update you if anything changes. Can we do a brief call tomorrow to review?",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:23:05.363386+00:00",
+    "created_at": "2026-11-21T14:48:25.730271+00:00",
     "decided_at": null
   },
   {
@@ -28,15 +28,15 @@
     "priority": "urgent",
     "priority_score": 100,
     "reasons": [
-      "objetivo purchase (+75)",
-      "ocurre en 41 días (+15)",
-      "conecta con sus preocupaciones: purchase (+10)"
+      "goal: purchase (+75)",
+      "happens in 41 days (+15)",
+      "matches their concerns: purchase (+10)"
     ],
     "simulated": false,
-    "draft": "Michael — Your home purchase is about six weeks away (41 days). This ties directly to the concern about cash for the purchase and a thin reserve. Let’s review your available cash and closing funds now so we know any shortfalls before closing. I’m available for a short call this week to go over numbers and next steps. What day/time works for you?",
+    "draft": "Michael — Your home purchase is about six weeks away (41 days). Right now you have $30,000 in cash, which covers about 3.2 months and is $16,530 short of the 5–6 month reserve. Counting the January 2027 goals, the target is $163,330–$172,636 and the plan’s cash would cover 0 months afterward. Let’s have a brief call this week to review timing and cash flow.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:23:16.465394+00:00",
+    "created_at": "2026-11-21T14:48:39.304475+00:00",
     "decided_at": null
   },
   {
@@ -51,13 +51,13 @@
       "legal change that touches this family (+60)",
       "takes effect in 41 days (+15)",
       "about $484 more Social Security tax per year (+9)",
-      "conecta con sus preocupaciones: tax (+10)"
+      "matches their concerns: tax (+10)"
     ],
     "simulated": false,
-    "draft": "Samantha — The Social Security wage base rises to $192,300 on Jan 1, 2027. With your $250,000 salary, about $7,800 becomes newly taxable and your Social Security tax will rise roughly $484 per year. The standard deduction increases $500 next year, and your salary already removes the child tax credit. No action is required now; I’m watching this. If you’d like, let’s schedule a short call to review.",
+    "draft": "Samantha — This change is expected and your plan already accounts for routine payroll updates. Because your $250,000 salary exceeds the 2027 wage base ($192,300), your Social Security tax will rise by about $484 per year (6.2% on the extra $7,800), effective January 1, 2027. Nothing needs doing now; I’m watching. If you’d like, let’s schedule a short call to review.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:23:33.032125+00:00",
+    "created_at": "2026-11-21T14:48:55.281529+00:00",
     "decided_at": null
   },
   {
@@ -72,13 +72,13 @@
       "NVDA -32.0% vs previous close (+60)",
       "technology = 31% of their stocks, severity Elevated",
       "also down: VTI -20.0%, QQQ -25.0%",
-      "conecta con sus preocupaciones: invest (+10)"
+      "matches their concerns: invest (+10)"
     ],
     "simulated": true,
-    "draft": "Hi Samantha — market drops are normal and your plan was built for them. Today’s moves (VTI −20%, QQQ −25%, NVDA −32%) imply about a $67,000 estimated decline in your invested portfolio (cash excluded). Your Growth profile and a 31% technology weight mean higher volatility but this was expected. No immediate action required; I’m watching. Let’s do a short 15‑minute call to review — what time tomorrow works?",
+    "draft": "Samantha, market drops like this are normal and your plan was built for volatility. Your invested portfolio shows an estimated paper decline of $67,000; VTI -20%, QQQ -25%, NVDA -32%. With about 31% of your stocks in technology, that’s the main driver. Nothing immediate needs doing — I’m watching. Let’s have a short call this week to review and answer any questions.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:23:43.907773+00:00",
+    "created_at": "2026-11-21T14:49:05.515813+00:00",
     "decided_at": null
   },
   {
@@ -90,15 +90,15 @@
     "priority": "high",
     "priority_score": 77,
     "reasons": [
-      "tipo market_drop (+70)",
-      "tecnología = 33.0% de sus acciones, severidad Elevated (+12)",
-      "evento simulado (-5)"
+      "event type market_drop (+70)",
+      "technology = 33.0% of their stocks, severity Elevated (+12)",
+      "simulated event (-5)"
     ],
     "simulated": true,
-    "draft": "Michael — Drops like this happen; your plan was built for market swings. Nvidia has fallen about 30% in two weeks and technology is roughly 33% of your stock holdings, so this is an elevated shock to your portfolio. With your home purchase in about six weeks, let’s review where cash and invested funds stand. I’m watching this closely—let’s schedule a short call this week to go over next steps.",
+    "draft": "Michael — Nvidia is down about 30% in two weeks and technology is roughly 33% of your stock holdings. Drops like this are normal; the plan was built for volatility. With your home purchase in about six weeks this may lower portfolio value, but no immediate action is required. I’m watching your accounts. Let’s schedule a brief call this week to review any concerns.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:23:58.192421+00:00",
+    "created_at": "2026-11-21T14:49:24.974633+00:00",
     "decided_at": null
   },
   {
@@ -110,15 +110,15 @@
     "priority": "high",
     "priority_score": 77,
     "reasons": [
-      "tipo market_drop (+70)",
-      "tecnología = 30.0% de sus acciones, severidad Elevated (+12)",
-      "evento simulado (-5)"
+      "event type market_drop (+70)",
+      "technology = 30.0% of their stocks, severity Elevated (+12)",
+      "simulated event (-5)"
     ],
     "simulated": true,
-    "draft": "Timothy and Melanie, Nvidia has fallen about 30% in two weeks. Melanie, I know market drops feel worrying; your plan was built for swings like this. Because technology is about 30% of your stock holdings, this move may meaningfully affect your stock allocation. No change is needed now; I am monitoring your accounts. If you'd like, let's schedule a 15-minute call this week to review.",
+    "draft": "Timothy and Melanie — Nvidia’s 30% drop over two weeks is the kind of market movement your plan was built to absorb. With about 30% of your stock holdings in technology, this move will affect your long‑term accounts more than usual. No immediate action is needed; I am watching your accounts. If you’d like, let’s set a 15‑minute call this week to review your technology exposure and your comfort with the plan.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:24:15.653903+00:00",
+    "created_at": "2026-11-21T14:49:37.464748+00:00",
     "decided_at": null
   },
   {
@@ -130,14 +130,14 @@
     "priority": "high",
     "priority_score": 75,
     "reasons": [
-      "objetivo college (+65)",
-      "conecta con sus preocupaciones: college (+10)"
+      "goal: college (+65)",
+      "matches their concerns: college (+10)"
     ],
     "simulated": false,
-    "draft": "Samantha, Ava’s college is about 21 months away (Aug 2028). Our plan shows a $98,838 college funding gap and a $0 529 balance; after setting aside $18,500 for goals you have only $750 above reserve. This is time-sensitive. Let’s have a short call to review funding options and next steps—are you available for a 20-minute call this week?",
+    "draft": "Samantha, Ava starts college in about 21 months. That timing is already in your plan. Right now the plan shows a college funding gap of $98,838 and a 529 balance of $0. After setting aside $18,500 for goals you would have only $750 above your reserve. Let’s schedule a short call this week to review options and timing.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:24:32.652969+00:00",
+    "created_at": "2026-11-21T14:49:50.068681+00:00",
     "decided_at": null
   },
   {
@@ -149,14 +149,14 @@
     "priority": "medium",
     "priority_score": 50,
     "reasons": [
-      "hito de los 11 años (+40)",
-      "conecta con sus preocupaciones: college (+10)"
+      "milestone at age 11 (+40)",
+      "matches their concerns: college (+10)"
     ],
     "simulated": false,
-    "draft": "Daniel and Emily — Oliver is 11, so college is about seven years away. That ties to the college funding gap of $106,552 after the $30,000 already in the 529 and your $8,000 a year contributions. This timeline fits the plan; there’s no immediate emergency, but we should review the gap calmly. Can we do a short 20-minute call next week to go over options?",
+    "draft": "Daniel and Emily — Oliver is 11 now, seven years until college. That ties to your college plan: after the $30,000 in the 529 and $8,000 a year going in, a $106,552 gap remains. We built your plan for milestones like this and can review calmly. Let’s have a short call next week to go over college funding options.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:24:45.144008+00:00",
+    "created_at": "2026-11-21T14:50:01.222583+00:00",
     "decided_at": null
   },
   {
@@ -168,14 +168,14 @@
     "priority": "medium",
     "priority_score": 50,
     "reasons": [
-      "objetivo purchase (+40)",
-      "conecta con sus preocupaciones: purchase (+10)"
+      "goal: purchase (+40)",
+      "matches their concerns: purchase (+10)"
     ],
     "simulated": false,
-    "draft": "Timothy and Melanie — Your planned vehicle purchase is about 20 months away. This near-term purchase goal ties into your other priorities, so it’s a good time to confirm the funding approach. Melanie, I’ll focus on protecting near-term cash and keeping options conservative. Let’s have a short call to review funding and any cash or credit implications — what two 20‑ to 30‑minute times this week work for you?",
+    "draft": "Timothy and Melanie, your vehicle purchase is about 20 months away (goal date July 2028). As a near-term goal that matches your purchase planning, it’s worth confirming your savings and timing and keeping near-term funds conservative so it won’t affect longer-term goals. Nothing urgent now, but let’s schedule a short call to review your plan and next steps. When are you available for a 20-minute call?",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:25:02.002694+00:00",
+    "created_at": "2026-11-21T14:50:19.969640+00:00",
     "decided_at": null
   },
   {
@@ -191,10 +191,10 @@
       "scheduled market alert"
     ],
     "simulated": true,
-    "draft": "Daniel and Emily,\n\nThe market opened lower than yesterday: VTI -8.0%, QQQ -10.0%, NVDA -12.8%. This kind of swing is normal and your plan was built for downturns. A rough estimate is your invested portfolio (cash excluded) is down about $25,040 if it moved like VTI. Nothing needs doing now; I’m watching. Let’s do a short call to review — are you available today or tomorrow?",
+    "draft": "Daniel and Emily, the market opened down: VTI -8.0%, QQQ -10.0%, NVDA -12.8% versus yesterday. This kind of volatility is normal and your plan was built for it. Roughly, your invested portfolio (cash excluded) shows an estimated decline of $25,040. No action is required now; I’m watching. If you’d like a short call to review, when are you free today or tomorrow?",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:32:31.738821+00:00",
+    "created_at": "2026-11-21T14:54:46.838317+00:00",
     "decided_at": null
   },
   {
@@ -210,10 +210,10 @@
       "scheduled market alert"
     ],
     "simulated": true,
-    "draft": "Hi Michael, markets opened lower vs yesterday: VTI -8.0%, QQQ -10.0%, NVDA -12.8%. This kind of move is normal; your plan was built for volatility. A rough estimate is your invested portfolio (cash excluded) is down about $11,080 if it moved like VTI. No immediate action needed — I’m watching. If you'd like, let’s have a brief call today to review.",
+    "draft": "Michael — The market opened down versus yesterday: VTI −8.0%, QQQ −10.0%, NVDA −12.8%. Drops like this are normal and the plan was built for market swings. For you, a rough estimate is about $11,080 lower on your invested portfolio (cash excluded). Nothing you need to do now; I’m watching. If you’d like, we can have a quick call today to review before your home purchase.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:32:45.528607+00:00",
+    "created_at": "2026-11-21T14:54:56.494422+00:00",
     "decided_at": null
   },
   {
@@ -229,10 +229,10 @@
       "scheduled market alert"
     ],
     "simulated": true,
-    "draft": "Samantha — the market opened lower: VTI -8%, QQQ -10%, NVDA -12.8% versus yesterday. Drops like this are normal and your plan was built for volatility. Roughly speaking your invested portfolio is down about $26,800 (estimate, cash excluded). I’m watching and there’s no need to act right now. Let’s have a short call to review—are you available today?",
+    "draft": "Samantha, the market opened down: VTI -8.0%, QQQ -10.0%, NVDA -12.8% vs yesterday. This kind of drop is normal and your plan was built for market swings. Rough estimate: your invested portfolio (moving like the US total market, cash excluded) is down about $26,800. No action is needed now; I’m watching. If you’d like, let’s do a brief 15-minute call to talk through this.",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:33:01.144909+00:00",
+    "created_at": "2026-11-21T14:55:10.442816+00:00",
     "decided_at": null
   },
   {
@@ -248,10 +248,10 @@
       "scheduled market alert"
     ],
     "simulated": true,
-    "draft": "Timothy and Melanie — The market opened today (2026-11-21) with VTI down 8%, QQQ down 10% and NVDA down 12.8% vs yesterday. Our plan expects swings like this. A rough estimate is a $16,464 drop on invested assets (cash excluded). Nothing needs doing now; I’m watching. Let’s have a short call today to review — what time works for you?",
+    "draft": "Timothy and Melanie — the market opened down vs. yesterday’s close: VTI -8.0%, QQQ -10.0%, NVDA -12.8%. This drop is notable but expected in market swings; the plan was built for declines. A rough estimate is about a $16,464 decline on invested holdings (cash excluded). No action needed now; I’m watching. Would you like a short 10‑minute call today to go over this?",
     "status": "pending",
     "final_text": null,
-    "created_at": "2026-11-21T14:33:16.323993+00:00",
+    "created_at": "2026-11-21T14:55:23.861915+00:00",
     "decided_at": null
   }
 ]

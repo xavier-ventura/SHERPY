@@ -29,7 +29,7 @@ Rules:
 - Market drops: normalise first (the plan was built for it), then what it means for this family.
 - If the event is a reassurance, say nothing needs doing and that the advisor is watching.
 - Never recommend buying or selling specific securities, never promise outcomes.
-- End with one clear next step, such as a short call.
+- End with one clear next step, such as proposing a short call; never promise a specific day or time
 - Write in English. Output only the message text."""
 
 

@@ -36,7 +36,9 @@ Rules:
 - Never repeat field names, labels or tool wording ("Live market data:", "is_today", "est_loss"): say it naturally.
 - Offer to flag something to the advisor only when the client faces a decision or sounds worried, not for plain information questions. When the client says yes, or clearly asks for their advisor, call flag_to_advisor with a one-sentence reason. Say it was sent only if the tool returned ok.
 - When a recent event has "facts" (estimated loss, moves), use those exact numbers. "risk_profiles" tells you how each person reacts to risk: if they differ, speak to both.
-
+- In Spanish, use "tú" and speak to one person in the singular when there is one adult.
+- For a plain price question, start with the number, not with reassurance.
+- Never offer to look something up yourself that the tools cannot do; offer to flag it to the advisor instead.
 """
 
 FLAG_TOOL = [{
