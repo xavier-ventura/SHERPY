@@ -89,3 +89,82 @@ async def consultar_cotizacion_finnhub(symbol: str, client: httpx.AsyncClient | 
     }
     _cache[sym] = (time.monotonic(), result)
     return result
+
+
+# ---------- Noticias (company-news y news general) ----------
+
+FINNHUB_COMPANY_NEWS_URL = "https://finnhub.io/api/v1/company-news"
+FINNHUB_NEWS_URL = "https://finnhub.io/api/v1/news"
+NEWS_LIMIT = 15
+NEWS_CACHE_TTL_S = 600.0
+SUMMARY_MAX_CHARS = 400
+_news_cache: dict[tuple[str, ...], tuple[float, dict[str, Any]]] = {}
+
+
+def _news_item(n: dict[str, Any], related: str | None = None) -> dict[str, Any]:
+    t = n.get("datetime") or 0
+    summary = (n.get("summary") or "").strip()
+    return {
+        "id": str(n.get("id") or n.get("url") or ""),
+        "headline": (n.get("headline") or "").strip(),
+        "summary": summary[:SUMMARY_MAX_CHARS] + ("…" if len(summary) > SUMMARY_MAX_CHARS else ""),
+        "source": n.get("source") or "",
+        "url": n.get("url") or "",
+        "datetime": datetime.fromtimestamp(t, UTC).isoformat() if t else None,
+        "image": n.get("image") or None,
+        "related": related or n.get("related") or "",
+    }
+
+
+async def _get_news(url: str, params: dict[str, Any], label: str, limit: int, related: str | None,
+                    client: httpx.AsyncClient | None) -> dict[str, Any]:
+    key = _api_key()
+    if not key:
+        return _error(label, "no_key", "FINNHUB_API_KEY no está configurada: no hay noticias.")
+    cache_key = (url, *(f"{k}={v}" for k, v in sorted(params.items())), str(limit))
+    hit = _news_cache.get(cache_key)
+    if hit and time.monotonic() - hit[0] < NEWS_CACHE_TTL_S:
+        return hit[1]
+    headers = {"X-Finnhub-Token": key}  # en cabecera, no en la URL (httpx registra las URLs)
+    try:
+        if client is None:
+            async with httpx.AsyncClient(timeout=TIMEOUT_S) as c:
+                r = await c.get(url, params=params, headers=headers)
+        else:
+            r = await client.get(url, params=params, headers=headers, timeout=TIMEOUT_S)
+        r.raise_for_status()
+        data = r.json()
+    except httpx.HTTPStatusError as e:
+        status = e.response.status_code
+        logger.warning("Finnhub noticias %s para %s", status, label)
+        code = {429: "rate_limit", 401: "bad_key", 403: "no_access"}.get(status, "upstream")
+        return _error(label, code, f"Finnhub no devolvió noticias para {label} (error {status}).")
+    except (httpx.HTTPError, ValueError) as e:
+        logger.warning("Finnhub noticias sin respuesta para %s: %s", label, type(e).__name__)
+        return _error(label, "network", "No se pudo contactar con Finnhub (red o tiempo de espera).")
+    if not isinstance(data, list):
+        return _error(label, "no_data", f"Finnhub no tiene noticias para {label}.")
+    items = sorted((n for n in data if isinstance(n, dict) and n.get("headline") and n.get("url")),
+                   key=lambda n: n.get("datetime") or 0, reverse=True)[:limit]
+    result = {"ok": True, "symbol": label, "items": [_news_item(n, related) for n in items]}
+    _news_cache[cache_key] = (time.monotonic(), result)
+    return result
+
+
+async def obtener_noticias_empresa_finnhub(symbol: str, dias: int = 7, limit: int = NEWS_LIMIT,
+                                           client: httpx.AsyncClient | None = None) -> dict[str, Any]:
+    """Noticias de una empresa/ETF de los últimos `dias` días (las `limit` más recientes)."""
+    sym = (symbol or "").upper().strip()
+    if not sym:
+        return _error(sym, "bad_symbol", "Símbolo vacío.")
+    hoy = datetime.now(UTC).date()
+    desde = hoy.fromordinal(hoy.toordinal() - max(1, dias))
+    params = {"symbol": sym, "from": desde.isoformat(), "to": hoy.isoformat()}
+    return await _get_news(FINNHUB_COMPANY_NEWS_URL, params, sym, limit, sym, client)
+
+
+async def obtener_noticias_generales_finnhub(category: str = "general", limit: int = NEWS_LIMIT,
+                                             client: httpx.AsyncClient | None = None) -> dict[str, Any]:
+    """Noticias generales de mercado: category = general | forex | crypto | merger."""
+    cat = (category or "general").lower().strip()
+    return await _get_news(FINNHUB_NEWS_URL, {"category": cat}, cat, limit, None, client)

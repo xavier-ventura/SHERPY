@@ -203,4 +203,20 @@ def build_agent(model: Model | None = None) -> Agent[AgentDeps, str]:
             results = await asyncio.gather(*(consultar_cotizacion_finnhub(t, client) for t in tickers))
         return calcs.calc_portfolio_live(holdings, dict(zip(tickers, results, strict=True)))
 
+    # ---------- Noticias personalizadas ----------
+
+    @agent.tool
+    async def get_personal_news(ctx: RunContext[AgentDeps], max_items: int = 5) -> list[dict[str, Any]]:
+        """Últimas noticias financieras REALES relevantes para la familia activa (de sus ETFs/acciones, tipos de
+        interés, inflación, vivienda, universidad, jubilación…), cada una con por qué les afecta, fuente, enlace y
+        fecha. Úsala SOLO si el usuario pide noticias explícitamente ("últimas noticias de mis inversiones",
+        "noticias financieras para mí"). Tarda unos segundos. Si falla, dilo sin inventar noticias."""
+        from sherpy.agent.news import NewsUnavailable, generar_noticias
+
+        try:
+            feed = await generar_noticias(ctx.deps.source, ctx.deps.case_id, ctx.model, max_items=max(1, min(max_items, 10)))
+        except NewsUnavailable as e:
+            raise ModelRetry(str(e)) from e
+        return [i.model_dump(exclude={"image"}) for i in feed.items]
+
     return agent
