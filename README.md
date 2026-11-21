@@ -1,7 +1,7 @@
 # SHERPY: first to know, first to tell
 
 <p align="center">
-  <img src="assets/sherpy-logo.png" alt="Sherpy" width="260">
+  <img src="assets/logo.png" alt="Sherpy" width="260">
 </p>
 
 <h1 align="center">SHERPY: first to know, first to tell</h1>
@@ -132,7 +132,7 @@ Notes: `inbox.py --reset` also clears open/close alerts and chat flags, so re-ru
 
 ## Screenshots
 
-![Sherpy landing page and market news with "Why it matters to you"](assets/app-screenshot.png)
+![Sherpy landing page and market news with "Why it matters to you"](assets/demo.png)
 
 *Left: landing page of the advisor's AI copilot. Right: market news, each with a "Why it matters to you" note based on the family's own holdings and goals.*
 
