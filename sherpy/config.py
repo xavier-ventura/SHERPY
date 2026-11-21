@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     # Voz (ElevenLabs Custom LLM): clave que ElevenLabs debe enviar como Bearer (opcional) y familia por defecto
     voice_api_key: str | None = None
     default_case_id: str | None = None
+    # Cotizaciones en tiempo real (Finnhub, plan gratuito). Sin clave, las herramientas de mercado avisan y siguen.
+    finnhub_api_key: str | None = None
 
 
 @lru_cache

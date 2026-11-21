@@ -100,3 +100,32 @@ class MarketShockResult(BaseModel):
     value_after: float
     per_account: list[AccountShock]
     loss_in_months_of_outflows: float | None
+
+
+class PortfolioLine(BaseModel):
+    account: str
+    ticker: str
+    shares: float | None
+    recorded_value: float
+    recorded_price: float | None
+    live_price: float | None
+    change_pct_today: float | None  # en % (como lo da Finnhub)
+    live_value: float | None
+    change_vs_recorded: float | None
+    change_today: float | None
+    priced: bool
+    note: str | None = None
+
+
+class PortfolioLiveResult(BaseModel):
+    lines: list[PortfolioLine]
+    tickers: list[str]
+    unpriced_tickers: list[str]
+    recorded_value_total: float
+    recorded_value_priced: float
+    live_value_priced: float
+    change_vs_recorded: float
+    change_vs_recorded_pct: float | None  # decimal
+    change_today: float
+    change_today_pct: float | None  # decimal
+    live_value_total: float

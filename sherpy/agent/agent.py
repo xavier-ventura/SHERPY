@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 from typing import Any, Literal
 
+import httpx
 from pydantic_ai import Agent, ModelRetry, RunContext
 from pydantic_ai.models import Model
 
@@ -14,6 +16,7 @@ from sherpy.agent.lexico import obtener_perfil_lexico_adultos
 from sherpy.agent.prompts import SYSTEM_PROMPT
 from sherpy.calcs import models as m
 from sherpy.config import Settings, get_settings
+from sherpy.data.finnhub import consultar_cotizacion_finnhub
 
 Part = Literal["financial-health", "investment-analysis", "legal-values", "persona", "signals"]
 MAX_SECTION_CHARS = 60_000  # ~15k tokens: evita mandar bloques enormes al LLM
@@ -172,5 +175,32 @@ def build_agent(model: Model | None = None) -> Agent[AgentDeps, str]:
         positions = await ctx.deps.source.get_case(ctx.deps.case_id, "investment-analysis", "positions")
         ef = calcs.calc_emergency_fund(fh)
         return _wrap(calcs.calc_market_shock, fh, drop_pct, positions, ef.monthly_outflows)
+
+    # ---------- Mercado en tiempo real (Finnhub) ----------
+
+    @agent.tool_plain
+    async def get_quote(symbol: str) -> dict[str, Any]:
+        """Cotización en tiempo real de UNA acción o ETF (Finnhub): precio actual, variación del día (absoluta y %),
+        máximo, mínimo, apertura y cierre anterior. Úsala SOLO si preguntan por el precio / cómo va hoy un valor
+        concreto. `symbol` es el ticker oficial de EE. UU.: dedúcelo del nombre (Apple → AAPL, Nvidia → NVDA,
+        Microsoft → MSFT, S&P 500 → SPY, Nasdaq 100 → QQQ). NO la uses para preguntas teóricas ni de gastos,
+        ingresos, deudas o ahorro. Si devuelve ok=false, explica el motivo sin inventar el precio."""
+        return await consultar_cotizacion_finnhub(symbol)
+
+    @agent.tool
+    async def get_portfolio_live(ctx: RunContext[AgentDeps]) -> m.PortfolioLiveResult:
+        """Valor ACTUAL de las inversiones de la familia activa: toma sus participaciones (tickers y nº de
+        participaciones de investment-analysis), consulta Finnhub para cada ticker y calcula participaciones ×
+        precio actual, la variación de hoy y la diferencia con el valor registrado por Sherpas. Úsala cuando
+        pregunten por "mis inversiones", "mi cartera", "cómo van mis acciones/fondos" o el valor actual de un activo
+        que tienen. Las posiciones sin cotización (p. ej. fondos de inversión que Finnhub no cubre) mantienen el
+        valor registrado y aparecen en `unpriced_tickers`. El efectivo no se incluye."""
+        key_metrics = await ctx.deps.source.get_case(ctx.deps.case_id, "investment-analysis", "key_metrics")
+        positions = await ctx.deps.source.get_case(ctx.deps.case_id, "investment-analysis", "positions")
+        holdings = calcs.holdings_from_investment_analysis(key_metrics, positions)
+        tickers = sorted({h["ticker"] for h in holdings})
+        async with httpx.AsyncClient() as client:
+            results = await asyncio.gather(*(consultar_cotizacion_finnhub(t, client) for t in tickers))
+        return calcs.calc_portfolio_live(holdings, dict(zip(tickers, results, strict=True)))
 
     return agent
