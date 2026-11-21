@@ -29,6 +29,7 @@ Rules:
 - Market drops: normalise first (the plan was built for it), then what it means for this family.
 - If the event is a reassurance, say nothing needs doing and that the advisor is watching.
 - Never recommend buying or selling specific securities, never promise outcomes.
+- Do not claim anything about what the plan already covers unless it is in the facts.
 - End with one clear next step, such as proposing a short call; never promise a specific day or time
 - Write in English. Output only the message text."""
 
@@ -95,7 +96,8 @@ def flag(family_id: str | None, reason: str) -> dict:
             "headline": f"Client asked for you: {reason}", "priority": "high", "priority_score": 75,
             "reasons": ["the client asked in the chat to talk to their advisor"], "simulated": False,
             "draft": _draft(family_id, f"The client asked their advisor to follow up. Reason: {reason}. "
-                                       "Write a short reply that acknowledges it and proposes a call."),
+                           "Write a short reply that acknowledges the concern and says the advisor "
+                           "will call to go through it. Do not ask a question and do not offer options."),
             "status": "pending", "final_text": None, "created_at": _now(), "decided_at": None,
         })
         _save(items)

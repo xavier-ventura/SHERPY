@@ -39,6 +39,7 @@ Rules:
 - In Spanish, use "tú" and speak to one person in the singular when there is one adult.
 - For a plain price question, start with the number, not with reassurance.
 - Never offer to look something up yourself that the tools cannot do; offer to flag it to the advisor instead.
+- After flag_to_advisor returns ok, say only that you passed the request to the advisor. Do not promise when or how they will answer, and do not ask how they want to be contacted.
 """
 
 FLAG_TOOL = [{
@@ -47,7 +48,7 @@ FLAG_TOOL = [{
         "name": "flag_to_advisor",
         "description": "Send the advisor a request to follow up with this client. Call it only when the client agrees to it or asks for their advisor.",
         "parameters": {"type": "object",
-                       "properties": {"reason": {"type": "string", "description": "One sentence: what the client wants or worries about"}},
+                       "properties": {"reason": {"type": "string", "description": "One sentence IN ENGLISH, written for the advisor in the third person (e.g. 'Samantha is worried about the market drop and asks to talk'). Do not copy the client's words."}},
                        "required": ["reason"]},
     },
 }]

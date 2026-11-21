@@ -253,5 +253,23 @@
     "final_text": null,
     "created_at": "2026-11-21T14:55:23.861915+00:00",
     "decided_at": null
+  },
+  {
+    "id": "samantha-lewis:flag:150038",
+    "family_id": "samantha-lewis",
+    "source": "chat_flag",
+    "type": "client_request",
+    "headline": "Client asked for you: Muy preocupada por la caída del mercado y por una estimación de $67,000 de pérdida en tus tenencias actuales; quiere hablar con el asesor.",
+    "priority": "high",
+    "priority_score": 75,
+    "reasons": [
+      "the client asked in the chat to talk to their advisor"
+    ],
+    "simulated": false,
+    "draft": "Hi Samantha — I hear your concern about the market drop and the estimated $67,000 decline in your invested portfolio. Market swings are normal and your plan was built to handle them. Right now nothing needs doing; I’m watching the accounts closely. Let’s have a short call to review what this means for your goals—shall I set one up?",
+    "status": "pending",
+    "final_text": null,
+    "created_at": "2026-11-21T15:00:53.347519+00:00",
+    "decided_at": null
   }
 ]
