@@ -1,0 +1,108 @@
+[
+  {
+    "id": "plan-michael-carter-purchase-2027",
+    "type": "plan_date",
+    "headline": "Purchase a home in about 6 weeks",
+    "days_away": 41,
+    "keywords": [
+      "purchase"
+    ],
+    "simulated": false,
+    "family_ids": [
+      "michael-carter"
+    ],
+    "priority_score": 90,
+    "priority": "urgent",
+    "priority_reasons": [
+      "goal: purchase (+75)",
+      "happens in 41 days (+15)"
+    ]
+  },
+  {
+    "id": "plan-samantha-lewis-college-2028",
+    "type": "plan_date",
+    "headline": "College Ava in about 21 months",
+    "days_away": 619,
+    "keywords": [
+      "college"
+    ],
+    "simulated": false,
+    "family_ids": [
+      "samantha-lewis"
+    ],
+    "priority_score": 65,
+    "priority": "high",
+    "priority_reasons": [
+      "goal: college (+65)"
+    ]
+  },
+  {
+    "id": "life-samantha-lewis-ava-16",
+    "type": "life_moment",
+    "headline": "Ava is 16: two years to college",
+    "keywords": [
+      "college"
+    ],
+    "simulated": false,
+    "family_ids": [
+      "samantha-lewis"
+    ],
+    "priority_score": 60,
+    "priority": "high",
+    "priority_reasons": [
+      "milestone at age 16 (+60)"
+    ]
+  },
+  {
+    "id": "life-samantha-lewis-ethan-18",
+    "type": "life_moment",
+    "headline": "Ethan has turned 18: time to review insurance and who is responsible for what",
+    "keywords": [
+      "insurance"
+    ],
+    "simulated": false,
+    "family_ids": [
+      "samantha-lewis"
+    ],
+    "priority_score": 55,
+    "priority": "medium",
+    "priority_reasons": [
+      "milestone at age 18 (+55)"
+    ]
+  },
+  {
+    "id": "life-daniel-emily-johnson-oliver-11",
+    "type": "life_moment",
+    "headline": "Oliver is 11: seven years to college",
+    "keywords": [
+      "college"
+    ],
+    "simulated": false,
+    "family_ids": [
+      "daniel-emily-johnson"
+    ],
+    "priority_score": 40,
+    "priority": "medium",
+    "priority_reasons": [
+      "milestone at age 11 (+40)"
+    ]
+  },
+  {
+    "id": "plan-timothy-melanie-weah-purchase-2028",
+    "type": "plan_date",
+    "headline": "Purchase a vehicle in about 20 months",
+    "days_away": 588,
+    "keywords": [
+      "purchase"
+    ],
+    "simulated": false,
+    "family_ids": [
+      "timothy-melanie-weah"
+    ],
+    "priority_score": 40,
+    "priority": "medium",
+    "priority_reasons": [
+      "goal: purchase (+40)"
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "family_id": "michael-carter",
+    "event_id": "plan-michael-carter-purchase-2027",
+    "event_type": "plan_date",
+    "headline": "Purchase a home in about 6 weeks",
+    "simulated": false,
+    "priority_score": 100,
+    "priority_level": "urgent",
+    "priority_reasons": [
+      "objetivo purchase (+75)",
+      "ocurre en 41 días (+15)",
+      "conecta con sus preocupaciones: purchase (+10)"
+    ],
+    "numbers_used": {},
+    "status": "pending",
+    "title": "Home purchase due soon — what it means",
+    "body": "Michael, your January 2027 home purchase in about six weeks is built into the plan, so this timing isn’t a surprise. You currently have $30,000 in cash (about 3.2 months of reserve) and are $16,530 short of a 5–6 month cushion; the purchase needs a $113,300 down payment and will add a $3,015.15 monthly mortgage plus taxes, insurance and closing costs. The projection shows investable assets falling from $178,717 in 2026 to $81,172 in 2027, which is why the down payment and added housing costs compete directly with retirement saving. Your advisor will confirm final closing timing, cash needs and loan terms, and then you can review practical steps to rebuild reserves or adjust priorities.",
+    "why_this_family": "The home purchase is imminent and cash is thin, creating an immediate trade-off with an existing retirement shortfall.",
+    "mini_challenge": {
+      "question": "Why does the planned home purchase create a direct trade-off with your retirement saving?",
+      "options": [
+        "It uses cash and investments that would otherwise support retirement.",
+        "It will reduce your salary.",
+        "It will increase the value of your RSUs immediately.",
+        "It will completely eliminate your current rent payments."
+      ],
+      "correct_index": 0,
+      "explanation": "The down payment and resulting drop in investable assets reduce the money available to grow for retirement, creating the trade-off."
+    },
+    "knowledge_level": "basic"
+  },
+  {
+    "family_id": "michael-carter",
+    "event_id": "nvda-drop-30",
+    "event_type": "market_drop",
+    "headline": "Nvidia falls 30% in two weeks",
+    "simulated": true,
+    "priority_score": 77,
+    "priority_level": "high",
+    "priority_reasons": [
+      "tipo market_drop (+70)",
+      "tecnología = 33.0% de sus acciones, severidad Elevated (+12)",
+      "evento simulado (-5)"
+    ],
+    "numbers_used": {
+      "technology_weight_of_equity": 0.3295,
+      "technology_severity": "Elevated",
+      "technology_driven_by": "VTI (68.6%), VWO (21.4%), SCHD (10.0%)"
+    },
+    "status": "pending",
+    "title": "Market drop and your January home purchase",
+    "body": "Michael — a near-term fall like this is unpleasant but expected: the plan is built for swings in your invested mix. Your portfolio fell 8.4% (versus 8.2% for a simple mix), which on today’s $172,000 of investments and cash is about $14,500. Technology is elevated in your stocks (33.0% of stock holdings), so a big Nvidia move will hit your mix disproportionately. Because your $113,300 down payment is due January 2027 and you have $30,000 of accessible cash, this kind of drop shrinks the investment base that would fund the purchase and retirement — I will run scenarios so we can decide whether to rebuild cash, adjust timing, or use other levers that fit your Growth profile.",
+    "why_this_family": "Michael has a January 2027 home purchase and elevated technology exposure, so this simulated market drop directly affects both his short-term cash needs and long-term savings.",
+    "mini_challenge": {
+      "question": "About how much did this portfolio fall in dollar terms on today’s $172,000 of investments and cash?",
+      "options": [
+        "$1,450",
+        "$14,500",
+        "$145,000",
+        "$172,000"
+      ],
+      "correct_index": 1,
+      "explanation": "An 8.4% fall on $172,000 is roughly $14,500."
+    },
+    "knowledge_level": "basic"
+  }
+]
