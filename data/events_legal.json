@@ -1,0 +1,36 @@
+[
+  {
+    "id": "ss-wage-base-2027-samantha-lewis",
+    "type": "legal_change",
+    "headline": "Social Security wage base rises in 2027: what it means for you",
+    "keywords": [
+      "tax",
+      "income"
+    ],
+    "facts": {
+      "rule": "Social Security wage base",
+      "wage_base_2026": 184500,
+      "wage_base_2027": 192300,
+      "salary": 250000,
+      "extra_wages_taxed": 7800,
+      "extra_social_security_tax_per_year": 484,
+      "effective_date": "2027-01-01",
+      "verified_facts": [
+        "Single filer: standard deduction rises by $500, from $16,100 to $16,600.",
+        "Her $250,000 salary is above both wage bases, so her Social Security tax rises by about $484 in 2027 (6.2% on the extra $7,800 of wages).",
+        "On salary alone, the child tax credit phase-out ($50 per $1,000 above $200,000 for a single filer) removes the credit in both years."
+      ]
+    },
+    "simulated": false,
+    "family_ids": [
+      "samantha-lewis"
+    ],
+    "priority_score": 84,
+    "priority": "urgent",
+    "priority_reasons": [
+      "legal change that touches this family (+60)",
+      "takes effect in 41 days (+15)",
+      "about $484 more Social Security tax per year (+9)"
+    ]
+  }
+]

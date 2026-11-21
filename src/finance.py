@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from dotenv import load_dotenv
 
 load_dotenv()
-KEY = os.environ["FINNHUB_KEY"]
+KEY = os.environ["FINNHUB_API_KEY"]
 SYMBOLS = ["NVDA", "VTI", "QQQ"]
 INTERVAL = 30  # segundos
 OUT = "data/market_snapshot.json"

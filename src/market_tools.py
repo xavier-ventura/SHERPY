@@ -5,7 +5,7 @@ On-demand market data for the chat. The LLM calls a tool only when the user asks
   - get_stock_quote(query): ANY US-listed company or ETF the user names ("Apple", "NVDA", "Tesla")
 The backend queries Finnhub and returns the numbers; the LLM only explains them.
 
-Needs FINNHUB_KEY in .env (same key as market_poller.py).
+Needs FINNHUB_API_KEY in .env (same key as market_poller.py).
 """
 import json
 import os
@@ -44,7 +44,7 @@ _searches: dict[str, dict | None] = {}
 
 
 def _get(path: str, **params) -> dict:
-    r = requests.get(f"{API}/{path}", params={**params, "token": os.environ["FINNHUB_KEY"]}, timeout=10)
+    r = requests.get(f"{API}/{path}", params={**params, "token": os.environ["FINNHUB_API_KEY"]}, timeout=10)
     r.raise_for_status()
     return r.json()
 
