@@ -41,7 +41,8 @@ Se expone como una **API HTTP con streaming** que consume un cliente externo (fu
 | Elección de fuente | ✅ Funciona | El agente decide en cada consulta `local` (rápido) o `mcp` (dato puntual) |
 | Agente LLM | ✅ Funciona | LLM de Sherpas (`gpt-5-mini`) + respaldo opcional Gemini / Groq |
 | API HTTP | ✅ Funciona | `/health`, `/cases`, `/chat` con Server-Sent Events |
-| Tests | ✅ 49 en verde | En la rama `test`, sin red |
+| Voz (ElevenLabs) | ✅ Funciona | `/v1/chat/completions` compatible con OpenAI: SHERPY como Custom LLM |
+| Tests | ✅ 56 en verde | En la rama `test`, sin red |
 | Hosting | ⏳ Pendiente | Aún sin desplegar |
 | Cliente / frontend | ➖ Fuera de este repo | — |
 
@@ -316,6 +317,7 @@ flowchart LR
 | `GET` | `/health` | `{status, data_source: "mcp" \| "local", llm_configured}` |
 | `GET` | `/cases` | Lista de los 4 casos (como `list_cases`) |
 | `POST` | `/chat` | `text/event-stream` (Server-Sent Events) |
+| `POST` | `/v1/chat/completions` | Formato OpenAI Chat Completions (para ElevenLabs) |
 
 ### `POST /chat`
 
@@ -336,6 +338,30 @@ Eventos del stream:
 La API **no guarda estado**: el cliente reenvía `history` (tal cual lo recibió en `done`) en el siguiente mensaje.
 
 Errores antes del stream: `404` caso inexistente · `422` petición o historial inválido · `503` sin LLM configurado.
+
+### Voz con ElevenLabs (Custom LLM)
+
+ElevenLabs pone la voz (escucha y habla); **SHERPY sigue siendo el cerebro**, con las mismas reglas, datos y `calc_*`.
+
+```mermaid
+flowchart LR
+    U(("Usuario<br/>habla")) --> EL["ElevenLabs Agent<br/>voz ↔ texto"]
+    EL -- "POST /v1/chat/completions<br/>(formato OpenAI, stream)" --> S["SHERPY<br/>agente + calc_* + datos"]
+    S -- "texto en streaming" --> EL
+    EL --> U2(("Usuario<br/>escucha"))
+```
+
+En el agente de ElevenLabs:
+
+| Campo | Valor |
+|---|---|
+| LLM | **Custom LLM** |
+| Server URL | `https://<tu-servicio>.onrender.com/v1` |
+| Model ID | `sherpy` |
+| API key | el mismo valor que `VOICE_API_KEY` (si la configuras) |
+| System prompt | debe incluir `case_id: <id>` (p. ej. `case_id: {{case_id}}` con variable dinámica) |
+
+La familia se elige así: `elevenlabs_extra_body.case_id` → línea `case_id: …` del system prompt → `DEFAULT_CASE_ID`. En modo voz el agente responde 2–4 frases, sin Markdown y con números dichos como se hablan.
 
 ```bash
 curl -N -X POST localhost:8000/chat -H 'content-type: application/json' \
@@ -378,6 +404,9 @@ Variables de entorno (`.env`, **nunca se sube**):
 | `MCP_URL`, `MCP_TOKEN` | Recomendado | MCP de Sherpas. Sin ellas se usa `cases/` |
 | `GOOGLE_API_KEY`, `GROQ_API_KEY` | No | Respaldo si el LLM principal falla |
 | `GEMINI_MODEL`, `GROQ_MODEL`, `SHERPAS_LLM_MODEL` | No | Cambiar el ID del modelo |
+| `CORS_ORIGINS` | No | Orígenes permitidos desde el navegador (por defecto `*`) |
+| `VOICE_API_KEY` | No (recomendado en producción) | Secreto que ElevenLabs envía como Bearer |
+| `DEFAULT_CASE_ID` | No | Familia por defecto en voz si no se indica `case_id` |
 
 Comportamiento según configuración:
 
@@ -405,7 +434,7 @@ git switch test
 .venv/bin/pytest
 ```
 
-49 tests, sin red (el agente usa `TestModel` y los datos locales):
+56 tests, sin red (el agente usa `TestModel` y los datos locales):
 
 | Archivo | Tests | Qué comprueba |
 |---|---:|---|
@@ -416,18 +445,20 @@ git switch test
 | `test_goals.py` | 6 | Universidad (529/UGMA), compra de casa, jubilación |
 | `test_market.py` | 4 | Caída sobre posiciones sin efectivo, cuenta de efectivo excluida, respaldo con cuentas, validación |
 | `test_source.py` | 8 | Elección local/MCP, caché, respaldo si el MCP cae, Markdown en texto plano |
-| `test_api.py` | 5 | `/health`, `/cases`, `/chat` (stream, fuente, historial), 404 |
+| `test_api.py` | 6 | `/health`, `/cases`, `/chat` (stream, fuente, historial), 404, CORS |
+| `test_voice.py` | 6 | Formato OpenAI (stream y no stream), elección de familia, API key, historial |
 
 ```mermaid
 pie showData
-    title "Tests por área (49)"
+    title "Tests por área (56)"
     "Impuestos y FICA" : 15
     "Fondo de emergencia" : 5
     "Deuda" : 6
     "Objetivos" : 6
     "Mercado" : 4
     "Fuente de datos" : 8
-    "API" : 5
+    "API" : 6
+    "Voz" : 6
 ```
 
 ---

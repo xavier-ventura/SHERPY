@@ -10,6 +10,7 @@ from pydantic_ai.models import Model
 
 from sherpy import calcs
 from sherpy.agent.deps import AgentDeps
+from sherpy.agent.lexico import obtener_perfil_lexico_adultos
 from sherpy.agent.prompts import SYSTEM_PROMPT
 from sherpy.calcs import models as m
 from sherpy.config import Settings, get_settings
@@ -69,6 +70,17 @@ def build_agent(model: Model | None = None) -> Agent[AgentDeps, str]:
     @agent.instructions
     def active_case(ctx: RunContext[AgentDeps]) -> str:
         return f"Caso activo: `{ctx.deps.case_id}`."
+
+    @agent.instructions
+    async def estilo_lexico(ctx: RunContext[AgentDeps]) -> str:
+        """Tono según la edad de los adultos (> 18) del hogar; "" si no hay datos (comportamiento estándar)."""
+        if not ctx.deps.case_id:
+            return ""
+        try:
+            case = await ctx.deps.source.get_case(ctx.deps.case_id, "financial-health", "case")
+        except Exception:
+            return ""
+        return obtener_perfil_lexico_adultos(case)
 
     # ---------- Contexto ----------
 
