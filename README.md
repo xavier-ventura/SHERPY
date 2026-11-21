@@ -1,5 +1,3 @@
-# SHERPY: first to know, first to tell
-
 <p align="center">
   <img src="assets/logo.png" alt="Sherpy" width="260">
 </p>
