@@ -1,0 +1,278 @@
+{
+  "SSWageBaseByYear": {
+    "2023": {
+      "value": 160200,
+      "source": "SSA contribution and benefit base (ssa.gov/oact/cola/cbb.html)"
+    },
+    "2024": {
+      "value": 168600,
+      "source": "SSA contribution and benefit base (ssa.gov/oact/cola/cbb.html)"
+    },
+    "2025": {
+      "value": 176100,
+      "source": "SSA contribution and benefit base (ssa.gov/oact/cola/cbb.html)"
+    },
+    "2026": {
+      "value": 184500,
+      "source": "SSA contribution and benefit base (ssa.gov/oact/cola/cbb.html)"
+    },
+    "2027": {
+      "value": 192300,
+      "source": "SSA contribution and benefit base 2027: $192,300 (https://www.ssa.gov/oact/cola/cbb.html; 2027 COLA fact sheet https://www.ssa.gov/news/en/cola/factsheets/2027.html)"
+    }
+  },
+  "FICATaxSS": {
+    "employedTopRange": {
+      "value": 176100,
+      "source": "SSA contribution and benefit base 2025 (ssa.gov/oact/cola/cbb.html)"
+    },
+    "employedTaxRate": {
+      "value": 0.062,
+      "source": "26 U.S.C. 3101(a) / 1401(a): Social Security tax rate"
+    },
+    "employedYear": {
+      "value": 2025,
+      "source": "SSA contribution and benefit base 2025 (ssa.gov/oact/cola/cbb.html)"
+    },
+    "selfEmployedTopRange": {
+      "value": 176100,
+      "source": "SSA contribution and benefit base 2025 (ssa.gov/oact/cola/cbb.html)"
+    },
+    "selfEmployedTaxRate": {
+      "value": 0.124,
+      "source": "26 U.S.C. 3101(a) / 1401(a): Social Security tax rate"
+    },
+    "selfEmployedYear": {
+      "value": 2025,
+      "source": "SSA contribution and benefit base 2025 (ssa.gov/oact/cola/cbb.html)"
+    }
+  },
+  "FICATaxMedicare": {
+    "employedTaxRate": {
+      "value": 0.0145,
+      "source": "26 U.S.C. 3101(b)(1) / 1401(b)(1): Medicare tax rate"
+    },
+    "employedYear": {
+      "value": 2023,
+      "source": "26 U.S.C. 3101(b)(1) / 1401(b)(1): Medicare tax rate"
+    },
+    "selfEmployedTaxRate": {
+      "value": 0.029,
+      "source": "26 U.S.C. 3101(b)(1) / 1401(b)(1): Medicare tax rate"
+    },
+    "selfEmployedYear": {
+      "value": 2023,
+      "source": "26 U.S.C. 3101(b)(1) / 1401(b)(1): Medicare tax rate"
+    }
+  },
+  "FICATaxAdditionalMedicare": {
+    "singleTopRange": {
+      "value": 200000,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "singleTaxRate": {
+      "value": 0.009,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "marriedSeparatelyTopRange": {
+      "value": 125000,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "marriedSeparatelyTaxRate": {
+      "value": 0.009,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "marriedJointlyTopRange": {
+      "value": 250000,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "marriedJointlyTaxRate": {
+      "value": 0.009,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "headTopRange": {
+      "value": 200000,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    },
+    "headTaxRate": {
+      "value": 0.009,
+      "source": "26 U.S.C. 3101(b)(2): Additional Medicare Tax (thresholds not indexed)"
+    }
+  },
+  "StandardDeductionByYear": {
+    "2026": {
+      "value": {
+        "SINGLE": 16100,
+        "MARRIED_JOINTLY": 32200,
+        "HEAD_OF_HOUSEHOLD": 24150
+      },
+      "source": "IRS IR-2025-103, 9 Oct 2025 (Rev. Proc. 2025-32): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill"
+    },
+    "2027": {
+      "value": {
+        "SINGLE": 16600,
+        "MARRIED_JOINTLY": 33200,
+        "HEAD_OF_HOUSEHOLD": 24925
+      },
+      "source": "IRS IR-2026-133, 5 Nov 2026 (Rev. Proc. 2026-35): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts"
+    }
+  },
+  "FederalIncomeTaxBracketsByYear": {
+    "2026": {
+      "value": {
+        "SINGLE": [
+          {
+            "upTo": 12400,
+            "rate": 0.1
+          },
+          {
+            "upTo": 50400,
+            "rate": 0.12
+          },
+          {
+            "upTo": 105700,
+            "rate": 0.22
+          },
+          {
+            "upTo": 201775,
+            "rate": 0.24
+          },
+          {
+            "upTo": 256225,
+            "rate": 0.32
+          },
+          {
+            "upTo": 640600,
+            "rate": 0.35
+          },
+          {
+            "upTo": null,
+            "rate": 0.37
+          }
+        ],
+        "MARRIED_JOINTLY": [
+          {
+            "upTo": 24800,
+            "rate": 0.1
+          },
+          {
+            "upTo": 100800,
+            "rate": 0.12
+          },
+          {
+            "upTo": 211400,
+            "rate": 0.22
+          },
+          {
+            "upTo": 403550,
+            "rate": 0.24
+          },
+          {
+            "upTo": 512450,
+            "rate": 0.32
+          },
+          {
+            "upTo": 768700,
+            "rate": 0.35
+          },
+          {
+            "upTo": null,
+            "rate": 0.37
+          }
+        ]
+      },
+      "source": "IRS IR-2025-103, 9 Oct 2025 (Rev. Proc. 2025-32): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill"
+    },
+    "2027": {
+      "value": {
+        "SINGLE": [
+          {
+            "upTo": 12800,
+            "rate": 0.1
+          },
+          {
+            "upTo": 52025,
+            "rate": 0.12
+          },
+          {
+            "upTo": 109125,
+            "rate": 0.22
+          },
+          {
+            "upTo": 208325,
+            "rate": 0.24
+          },
+          {
+            "upTo": 264550,
+            "rate": 0.32
+          },
+          {
+            "upTo": 661375,
+            "rate": 0.35
+          },
+          {
+            "upTo": null,
+            "rate": 0.37
+          }
+        ],
+        "MARRIED_JOINTLY": [
+          {
+            "upTo": 25600,
+            "rate": 0.1
+          },
+          {
+            "upTo": 104050,
+            "rate": 0.12
+          },
+          {
+            "upTo": 218250,
+            "rate": 0.22
+          },
+          {
+            "upTo": 416650,
+            "rate": 0.24
+          },
+          {
+            "upTo": 529100,
+            "rate": 0.32
+          },
+          {
+            "upTo": 793650,
+            "rate": 0.35
+          },
+          {
+            "upTo": null,
+            "rate": 0.37
+          }
+        ]
+      },
+      "source": "IRS IR-2026-133, 5 Nov 2026 (Rev. Proc. 2026-35): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts"
+    }
+  },
+  "ChildTaxCreditByYear": {
+    "2026": {
+      "value": {
+        "perChild": 2200,
+        "childUnderAge": 17,
+        "phaseOutStart": {
+          "SINGLE": 200000,
+          "MARRIED_JOINTLY": 400000
+        },
+        "reductionPer1000": 50
+      },
+      "source": "26 U.S.C. 24: credit per qualifying child under 17; reduced by $50 for each $1,000 of income above $200,000 ($400,000 married filing jointly); 2026 amount: $2,300 for 2027 is \"an increase of $100 from 2026\" (IRS IR-2026-133, 5 Nov 2026 (Rev. Proc. 2026-35): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts)"
+    },
+    "2027": {
+      "value": {
+        "perChild": 2300,
+        "childUnderAge": 17,
+        "phaseOutStart": {
+          "SINGLE": 200000,
+          "MARRIED_JOINTLY": 400000
+        },
+        "reductionPer1000": 50
+      },
+      "source": "26 U.S.C. 24: credit per qualifying child under 17; reduced by $50 for each $1,000 of income above $200,000 ($400,000 married filing jointly); IRS IR-2026-133, 5 Nov 2026 (Rev. Proc. 2026-35): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts"
+    }
+  }
+}

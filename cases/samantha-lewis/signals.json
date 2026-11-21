@@ -1,0 +1,65 @@
+{
+  "about": "Examples of what a tracker could pick up for this family, to show one possible structure: what happened, which moment it is (market, rule, life or decision), what it touches in this family's plan, and where in the case data to look. Nothing is invented: a past market shock already in the family's data, the official 2027 tax changes, and a dated moment from the family's plan. They are not today's news and not a list of what to build: what to watch, and from which sources, is up to you. Amounts are US dollars.",
+  "family": "samantha-lewis",
+  "signals": [
+    {
+      "id": "market-liberation-day-tariffs",
+      "date": "2025-04-02",
+      "moment": "market",
+      "source": "Past market event in this family's investment analysis",
+      "headline": "Liberation Day tariffs announced: the S&P 500 lost 10% in two days",
+      "what_happened": "The US announced broad reciprocal tariffs (a 10% baseline, 34% on China, 20% on the EU). The S&P 500 lost 10% in two days. Full description in analysis.events.",
+      "touches_this_family": [
+        "This portfolio fell 9.9%, against 9.5% for a simple mix with the same stock share. On today's $415,000 of investments and cash, a fall that size is about $41,000.",
+        "Worst fall in the last three years: 12.0%, recovered in 78 days.",
+        "Longer history: in the Global Financial Crisis (Oct 2007 to Mar 2009) the current mix would have lost 17.9% and the recommended mix 10.6%; in the COVID crash (Feb to Mar 2020) 15.5% and 12.5%.",
+        "Technology is 30.6% of Samantha's stock holdings, mostly through VTI.",
+        "VTI, a total US stock market fund, is about 39% of her investments plus cash ($162,000 of $415,000) (persona D4b)."
+      ],
+      "where_in_the_data": [
+        "investment-analysis.json: key_metrics.performanceAnalysis.perEventDrawdowns (11 shocks, 2023 to 2026)",
+        "investment-analysis.json: analysis.events (what each shock was)",
+        "investment-analysis.json: key_metrics.portfolioAnalysis.marketEnvironments (current mix, 8 periods since 2007)",
+        "investment-analysis.json: key_metrics.targetAnalysis.marketEnvironments (recommended mix, same periods)",
+        "investment-analysis.json: key_metrics.concentrationAndDiversification.sectorConcentration, positions"
+      ]
+    },
+    {
+      "id": "rule-2027-tax-values",
+      "date": "2026-11-05",
+      "moment": "rule",
+      "source": "Official: IRS and SSA",
+      "headline": "2027 tax values published: standard deduction, brackets, child tax credit, Social Security wage base",
+      "what_happened": "The IRS published the 2027 inflation adjustments on 5 November 2026: standard deduction $16,600 single and $33,200 married filing jointly (from $16,100 and $32,200), brackets indexed, child tax credit $2,300 per child (from $2,200). The Social Security wage base rises to $192,300 for 2027 (from $184,500). They apply from 1 January 2027.",
+      "touches_this_family": [
+        "Single filer: standard deduction rises by $500, from $16,100 to $16,600.",
+        "Her $250,000 salary is above both wage bases, so her Social Security tax rises by about $484 in 2027 (6.2% on the extra $7,800 of wages).",
+        "On salary alone, the child tax credit phase-out ($50 per $1,000 above $200,000 for a single filer) removes the credit in both years."
+      ],
+      "where_in_the_data": [
+        "legal-values.json (same file as legal/legal-dataset-sample.json): StandardDeductionByYear, FederalIncomeTaxBracketsByYear, ChildTaxCreditByYear, SSWageBaseByYear",
+        "financial-health.json: case.tax_filing_status, profile.incomes, case.household"
+      ],
+      "sources": [
+        "IRS IR-2026-133, 5 Nov 2026 (Rev. Proc. 2026-35): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts",
+        "SSA contribution and benefit base 2027: $192,300 (https://www.ssa.gov/oact/cola/cbb.html; 2027 COLA fact sheet https://www.ssa.gov/news/en/cola/factsheets/2027.html)"
+      ]
+    },
+    {
+      "id": "life-college-payments",
+      "date": "2027-08-01",
+      "moment": "life",
+      "source": "This family's plan",
+      "headline": "Ethan's next college payment in August 2027, Ava starts in August 2028",
+      "what_happened": "Ethan started college in August 2026; his next $12,500 payment is due in August 2027. Ava (16) starts in August 2028. College costs $12,500 a year per child.",
+      "touches_this_family": [
+        "The plan counts $0 in 529 plans and shows $98,838 of the $100,000 total cost still needed (persona D3).",
+        "Decision style: validator, someone who checks and confirms (persona D5); motivation: duty to the children (persona D6)."
+      ],
+      "where_in_the_data": [
+        "financial-health.json: goals.chartGoals (College Ava, 2028-08-01), case.household",
+        "persona.md: D1, D3, D5, D6"
+      ]
+    }
+  ]
+}
