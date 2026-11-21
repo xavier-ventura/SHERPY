@@ -31,6 +31,7 @@ from sherpy.agent.agent import NoModelConfigured, build_agent
 from sherpy.agent.deps import AgentDeps
 from sherpy.api.market import router as market_router
 from sherpy.api.news import router as news_router
+from sherpy.api.send import router as send_router
 from sherpy.api.schemas import ChatRequest, HealthResponse
 from sherpy.api.voice import router as voice_router
 from sherpy.config import get_settings
@@ -71,6 +72,7 @@ app.add_middleware(
 app.include_router(voice_router)
 app.include_router(market_router)
 app.include_router(news_router)
+app.include_router(send_router)
 
 
 def _sse(event: str, data: Any) -> str:

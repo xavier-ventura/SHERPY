@@ -29,6 +29,15 @@ class Settings(BaseSettings):
     default_case_id: str | None = None
     # Cotizaciones en tiempo real (Finnhub, plan gratuito). Sin clave, las herramientas de mercado avisan y siguen.
     finnhub_api_key: str | None = None
+    # Envío de resúmenes (opcional). Sin SMTP → vista previa; sin Twilio → enlace wa.me.
+    smtp_host: str | None = None
+    smtp_port: int = 587          # 587 STARTTLS · 465 SSL
+    smtp_user: str | None = None
+    smtp_password: str | None = None
+    smtp_from: str | None = None  # remitente; por defecto SMTP_USER
+    twilio_account_sid: str | None = None
+    twilio_auth_token: str | None = None
+    twilio_whatsapp_from: str | None = None  # p. ej. +14155238886 (sandbox de Twilio)
 
 
 @lru_cache
