@@ -4,7 +4,12 @@
 
 <h1 align="center">SHERPY: first to know, first to tell</h1>
 
-Sherpas challenge, CDTM Valencia Hacks 2026. Between meetings, every family hears from its advisor first, in its own terms. **The AI drafts, the advisor approves, and nothing reaches the family until approved.**
+<p align="center">
+  <strong>CDTM Valencia Hacks 2026</strong><br>
+  Sherpas challenge · Saturday 21 November 2026 · The Terminal Hub, Valencia
+</p>
+
+Between meetings, every family hears from its advisor first, in its own terms. **The AI drafts, the advisor approves, and nothing reaches the family until approved.**
 
 > ⚠️ The 4 families are fictional and synthetic (USD, US tax context). Answers are educational information, not regulated financial advice.
 
