@@ -8,6 +8,7 @@ from profiling import build_profile
 DATA = Path(__file__).resolve().parent.parent / "data"
 EVENTS_FILE = DATA / "events.json"        # eventos manuales (mercado, legal, tranquilidad)
 AUTO_FILE = DATA / "events_auto.json"     # generados por events_builder.py
+MARKET_FILE = DATA / "events_market.json"   # generado por market_events.py
 
 # ---------- configuración de prioridad (ajustad estos números) ----------
 BASE_SCORE = {                 # solo para eventos manuales de events.json
@@ -34,6 +35,8 @@ def load_events() -> list[dict]:
         events += json.loads(EVENTS_FILE.read_text(encoding="utf-8"))
     if AUTO_FILE.exists():
         events += json.loads(AUTO_FILE.read_text(encoding="utf-8"))
+    if MARKET_FILE.exists():
+        events += json.loads(MARKET_FILE.read_text(encoding="utf-8"))
     return events
 
 

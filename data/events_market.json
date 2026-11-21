@@ -1,0 +1,140 @@
+[
+  {
+    "id": "market-michael-carter-shock",
+    "type": "market_drop",
+    "sector": "broad",
+    "headline": "Markets drop 20%: what it means for you",
+    "keywords": [
+      "market",
+      "invest"
+    ],
+    "facts": {
+      "moves_pct": {
+        "VTI": -20.0,
+        "QQQ": -25.0,
+        "NVDA": -32.0
+      },
+      "est_loss_usd": 27700
+    },
+    "risk_profiles": {
+      "Michael": "Growth"
+    },
+    "snapshot_at": "2026-11-21T13:37:22.634933+00:00",
+    "simulated": true,
+    "family_ids": [
+      "michael-carter"
+    ],
+    "priority_score": 85,
+    "priority": "urgent",
+    "priority_reasons": [
+      "VTI -20.0% vs previous close (+60)",
+      "43% of what they invest is in VTI",
+      "technology = 33% of their stocks, severity Elevated",
+      "also down: QQQ -25.0%, NVDA -32.0%"
+    ]
+  },
+  {
+    "id": "market-samantha-lewis-shock",
+    "type": "market_drop",
+    "sector": "broad",
+    "headline": "Markets drop 20%: what it means for you",
+    "keywords": [
+      "market",
+      "invest"
+    ],
+    "facts": {
+      "moves_pct": {
+        "VTI": -20.0,
+        "QQQ": -25.0,
+        "NVDA": -32.0
+      },
+      "est_loss_usd": 67000
+    },
+    "risk_profiles": {
+      "Samantha": "Growth"
+    },
+    "snapshot_at": "2026-11-21T13:37:22.634933+00:00",
+    "simulated": true,
+    "family_ids": [
+      "samantha-lewis"
+    ],
+    "priority_score": 85,
+    "priority": "urgent",
+    "priority_reasons": [
+      "VTI -20.0% vs previous close (+60)",
+      "48% of what they invest is in VTI",
+      "technology = 31% of their stocks, severity Elevated",
+      "also down: QQQ -25.0%, NVDA -32.0%"
+    ]
+  },
+  {
+    "id": "market-daniel-emily-johnson-shock",
+    "type": "market_drop",
+    "sector": "broad",
+    "headline": "Markets drop 20%: what it means for you",
+    "keywords": [
+      "market",
+      "invest"
+    ],
+    "facts": {
+      "moves_pct": {
+        "VTI": -20.0,
+        "QQQ": -25.0,
+        "NVDA": -32.0
+      },
+      "est_loss_usd": 62600
+    },
+    "risk_profiles": {
+      "Daniel": "Growth",
+      "Emily": "Moderate"
+    },
+    "snapshot_at": "2026-11-21T13:37:22.634933+00:00",
+    "simulated": true,
+    "family_ids": [
+      "daniel-emily-johnson"
+    ],
+    "priority_score": 79,
+    "priority": "high",
+    "priority_reasons": [
+      "VTI -20.0% vs previous close (+60)",
+      "29% of what they invest is in VTI",
+      "technology = 36% of their stocks, severity Significant",
+      "also down: QQQ -25.0%, NVDA -32.0%"
+    ]
+  },
+  {
+    "id": "market-timothy-melanie-weah-shock",
+    "type": "market_drop",
+    "sector": "broad",
+    "headline": "Markets drop 20%: what it means for you",
+    "keywords": [
+      "market",
+      "invest"
+    ],
+    "facts": {
+      "moves_pct": {
+        "VTI": -20.0,
+        "QQQ": -25.0,
+        "NVDA": -32.0
+      },
+      "est_loss_usd": 41160
+    },
+    "risk_profiles": {
+      "Timothy": "Growth",
+      "Melanie": "Moderate"
+    },
+    "snapshot_at": "2026-11-21T13:37:22.634933+00:00",
+    "simulated": true,
+    "family_ids": [
+      "timothy-melanie-weah"
+    ],
+    "priority_score": 78,
+    "priority": "high",
+    "priority_reasons": [
+      "VTI -20.0% vs previous close (+60)",
+      "29% of what they invest is in VTI",
+      "technology = 30% of their stocks, severity Elevated",
+      "also down: QQQ -25.0%, NVDA -32.0%"
+    ]
+  }
+]
