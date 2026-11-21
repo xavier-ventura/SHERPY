@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     groq_model: str = "openai/gpt-oss-120b"
     # Orígenes permitidos para llamar desde el navegador (Lovable, localhost…), separados por comas. "*" = todos.
     cors_origins: str = "*"
+    # Voz (ElevenLabs Custom LLM): clave que ElevenLabs debe enviar como Bearer (opcional) y familia por defecto
+    voice_api_key: str | None = None
+    default_case_id: str | None = None
 
 
 @lru_cache
