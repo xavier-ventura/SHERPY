@@ -1,0 +1,24 @@
+# Dependencias de SHERPY (versiones probadas). Instalar: pip install -r requirements.txt
+
+# API
+fastapi==0.165.0
+uvicorn[standard]==0.54.0
+
+# Modelos y configuración
+pydantic==2.14.4
+pydantic-settings==2.16.3
+python-dotenv==1.2.4
+
+# Agente + proveedores LLM (Sherpas/OpenAI-compatible principal; Gemini y Groq respaldo)
+pydantic-ai-slim[openai,google,groq,mcp]==2.71.0
+openai==3.57.0
+google-genai==2.34.0
+groq==1.7.0
+
+# Datos: cliente MCP de Sherpas
+mcp==2.3.0
+
+# Tests
+pytest==9.2.0
+pytest-asyncio==1.5.0
+httpx==0.28.1
