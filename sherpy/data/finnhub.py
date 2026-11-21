@@ -61,8 +61,11 @@ async def consultar_cotizacion_finnhub(symbol: str, client: httpx.AsyncClient | 
         logger.warning("Finnhub %s para %s", status, sym)
         if status == 429:
             return _error(sym, "rate_limit", "Finnhub ha alcanzado el límite de peticiones; prueba en un minuto.")
-        if status in (401, 403):
-            return _error(sym, "bad_key", "Finnhub rechaza la clave (FINNHUB_API_KEY inválida o sin permiso).")
+        if status == 401:
+            return _error(sym, "bad_key", "Finnhub rechaza la clave (FINNHUB_API_KEY inválida).")
+        if status == 403:
+            return _error(sym, "no_access", f"El plan gratuito de Finnhub no cubre {sym} "
+                                            "(p. ej. fondos de inversión): se usa el valor registrado.")
         return _error(sym, "upstream", f"Finnhub respondió con error {status}.")
     except (httpx.HTTPError, ValueError) as e:
         logger.warning("Finnhub sin respuesta para %s: %s", sym, type(e).__name__)

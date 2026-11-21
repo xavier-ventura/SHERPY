@@ -10,7 +10,7 @@ from sherpy.data.finnhub import consultar_cotizacion_finnhub
 
 router = APIRouter()
 
-ERROR_STATUS = {"bad_symbol": 422, "no_key": 503, "no_data": 404, "rate_limit": 429,
+ERROR_STATUS = {"bad_symbol": 422, "no_key": 503, "no_data": 404, "rate_limit": 429, "no_access": 403,
                 "bad_key": 502, "upstream": 502, "network": 504}
 
 
