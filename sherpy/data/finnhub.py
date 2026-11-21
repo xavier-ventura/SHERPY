@@ -46,18 +46,18 @@ async def consultar_cotizacion_finnhub(symbol: str, client: httpx.AsyncClient | 
     if hit and time.monotonic() - hit[0] < CACHE_TTL_S:
         return hit[1]
 
-    params = {"symbol": sym, "token": key}
+    params = {"symbol": sym}
+    headers = {"X-Finnhub-Token": key}  # en cabecera, no en la URL: httpx registra las URLs en los logs
     try:
         if client is None:
             async with httpx.AsyncClient(timeout=TIMEOUT_S) as c:
-                r = await c.get(FINNHUB_QUOTE_URL, params=params)
+                r = await c.get(FINNHUB_QUOTE_URL, params=params, headers=headers)
         else:
-            r = await client.get(FINNHUB_QUOTE_URL, params=params, timeout=TIMEOUT_S)
+            r = await client.get(FINNHUB_QUOTE_URL, params=params, headers=headers, timeout=TIMEOUT_S)
         r.raise_for_status()
         q = r.json()
     except httpx.HTTPStatusError as e:
         status = e.response.status_code
-        # Nunca se registra la URL: lleva el token.
         logger.warning("Finnhub %s para %s", status, sym)
         if status == 429:
             return _error(sym, "rate_limit", "Finnhub ha alcanzado el límite de peticiones; prueba en un minuto.")
