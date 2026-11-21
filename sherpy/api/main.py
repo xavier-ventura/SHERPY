@@ -33,6 +33,7 @@ from sherpy.config import get_settings
 from sherpy.data.source import CaseSource, MCPBackend
 
 logger = logging.getLogger("sherpy.api")
+logging.basicConfig(level=logging.INFO, format="%(levelname)s:     %(name)s - %(message)s")
 
 
 @asynccontextmanager

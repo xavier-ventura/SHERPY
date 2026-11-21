@@ -142,8 +142,11 @@ class MCPBackend:
         if getattr(r, "isError", False) or getattr(r, "is_error", False):
             text = r.content[0].text if r.content else "error"
             raise KeyError(f"MCP {name}: {text}")
-        payload = json.loads(r.content[0].text)
-        return payload
+        text = r.content[0].text
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            return text  # una parte Markdown entera llega como texto plano
 
     async def list_cases(self) -> list[dict[str, Any]]:
         return await self._call("list_cases", {})
