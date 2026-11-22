@@ -12,10 +12,10 @@ from tracker import ranked_events_for_family
 load_dotenv()
 
 llm = OpenAI(
-    base_url=os.environ["LLM_PROXY_URL"].rstrip("/") + "/v1",
-    api_key=os.environ["TEAM_KEY"],
+    base_url=os.environ.get("LLM_BASE_URL") or os.environ["LLM_PROXY_URL"].rstrip("/") + "/v1",
+    api_key=os.environ.get("LLM_API_KEY") or os.environ["TEAM_KEY"],
 )
-MODEL = "gpt-5-mini"
+MODEL = os.environ.get("LLM_MODEL", "gpt-5-mini")
 
 # ESTE es el prompt: aquí se configura cómo responde el chatbot
 SYSTEM_CHAT = """You are the assistant of a US family's financial advisor, inside the Sherpas platform.
