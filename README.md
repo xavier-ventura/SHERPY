@@ -1,6 +1,15 @@
-# SHERPY: first to know, first to tell
+<p align="center">
+  <img src="assets/logo.png" alt="Sherpy" width="260">
+</p>
 
-Sherpas challenge, CDTM Valencia Hacks 2026. Between meetings, every family hears from its advisor first, in its own terms. **The AI drafts, the advisor approves, and nothing reaches the family until approved.**
+<h1 align="center">SHERPY: first to know, first to tell</h1>
+
+<p align="center">
+  <strong>CDTM Valencia Hacks 2026</strong><br>
+  Sherpas challenge · Saturday 21 November 2026 · The Terminal Hub, Valencia
+</p>
+
+Between meetings, every family hears from its advisor first, in its own terms. **The AI drafts, the advisor approves, and nothing reaches the family until approved.**
 
 > ⚠️ The 4 families are fictional and synthetic (USD, US tax context). Answers are educational information, not regulated financial advice.
 
@@ -123,6 +132,12 @@ Notes: `inbox.py --reset` also clears open/close alerts and chat flags, so re-ru
 3. `POST /inbox/{id}/approve` with an edited text: the advisor edits and approves.
 4. `GET /family/samantha-lewis/messages` again: the approved message now appears.
 5. `POST /chat` asking about a stock, then saying she is worried and wants her advisor: a `chat_flag` item appears in the inbox.
+
+## Screenshots
+
+![Sherpy landing page and market news with "Why it matters to you"](assets/demo.png)
+
+*Left: landing page of the advisor's AI copilot. Right: market news, each with a "Why it matters to you" note based on the family's own holdings and goals.*
 
 ## What is simulated
 
