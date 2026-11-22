@@ -2,6 +2,12 @@
   <img src="assets/logo.png" alt="Sherpy" width="260">
 </p>
 
+<p align="center">
+  <a href="https://sherpy.lovable.app" target="_blank">
+    <img src="https://img.shields.io/badge/🚀%20Try%20it%20out-sherpy.lovable.app-6366F1?style=for-the-badge" alt="Try it out" />
+  </a>
+</p>
+
 <h1 align="center">SHERPY: first to know, first to tell</h1>
 
 <p align="center">
@@ -138,6 +144,14 @@ Notes: `inbox.py --reset` also clears open/close alerts and chat flags, so re-ru
 ![Sherpy landing page and market news with "Why it matters to you"](assets/demo.png)
 
 *Left: landing page of the advisor's AI copilot. Right: market news, each with a "Why it matters to you" note based on the family's own holdings and goals.*
+
+
+
+https://github.com/user-attachments/assets/64035b32-5062-4b09-910f-44e6e635208c
+
+
+
+> 🚀 **Try it out:** [sherpy.lovable.app](https://sherpy.lovable.app)
 
 ## What is simulated
 
