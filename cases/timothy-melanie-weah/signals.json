@@ -1,0 +1,66 @@
+{
+  "about": "Examples of what a tracker could pick up for this family, to show one possible structure: what happened, which moment it is (market, rule, life or decision), what it touches in this family's plan, and where in the case data to look. Nothing is invented: a past market shock already in the family's data, the official 2027 tax changes, and a dated moment from the family's plan. They are not today's news and not a list of what to build: what to watch, and from which sources, is up to you. Amounts are US dollars.",
+  "family": "timothy-melanie-weah",
+  "signals": [
+    {
+      "id": "market-liberation-day-tariffs",
+      "date": "2025-04-02",
+      "moment": "market",
+      "source": "Past market event in this family's investment analysis",
+      "headline": "Liberation Day tariffs announced: the S&P 500 lost 10% in two days",
+      "what_happened": "The US announced broad reciprocal tariffs (a 10% baseline, 34% on China, 20% on the EU). The S&P 500 lost 10% in two days. Full description in analysis.events.",
+      "touches_this_family": [
+        "This portfolio fell 7.1%, against 6.2% for a simple mix with the same stock share. On today's $360,000 of investments and cash, a fall that size is about $25,600.",
+        "Worst fall in the last three years: 9.2%, recovered in 37 days.",
+        "Longer history: in the Global Financial Crisis (Oct 2007 to Mar 2009) the current mix would have lost 16.8% and the recommended mix 6.1%; in the COVID crash (Feb to Mar 2020) 11.2% and 7.7%.",
+        "Technology is 30.0% of Timothy and Melanie's stock holdings, mostly through VTI.",
+        "Timothy's Roth IRA holds $12,740 of UPRO, a leveraged fund that aims for three times the daily move of the S&P 500 (persona D4b).",
+        "$150,000 of the total is cash, which does not fall with the market."
+      ],
+      "where_in_the_data": [
+        "investment-analysis.json: key_metrics.performanceAnalysis.perEventDrawdowns (11 shocks, 2023 to 2026)",
+        "investment-analysis.json: analysis.events (what each shock was)",
+        "investment-analysis.json: key_metrics.portfolioAnalysis.marketEnvironments (current mix, 8 periods since 2007)",
+        "investment-analysis.json: key_metrics.targetAnalysis.marketEnvironments (recommended mix, same periods)",
+        "investment-analysis.json: key_metrics.concentrationAndDiversification.sectorConcentration, positions"
+      ]
+    },
+    {
+      "id": "rule-2027-tax-values",
+      "date": "2026-11-05",
+      "moment": "rule",
+      "source": "Official: IRS and SSA",
+      "headline": "2027 tax values published: standard deduction, brackets, child tax credit, Social Security wage base",
+      "what_happened": "The IRS published the 2027 inflation adjustments on 5 November 2026: standard deduction $16,600 single and $33,200 married filing jointly (from $16,100 and $32,200), brackets indexed, child tax credit $2,300 per child (from $2,200). The Social Security wage base rises to $192,300 for 2027 (from $184,500). They apply from 1 January 2027.",
+      "touches_this_family": [
+        "Married filing jointly: standard deduction rises by $1,000, from $32,200 to $33,200.",
+        "Child tax credit rises by $100 per child for Liam (6) and Josh (3): $200 a year more; their $270,000 of salaries is below the $400,000 phase-out start.",
+        "Both salaries ($150,000 and $120,000) are below the wage base, so the Social Security change does not raise their payroll tax."
+      ],
+      "where_in_the_data": [
+        "legal-values.json (same file as legal/legal-dataset-sample.json): StandardDeductionByYear, FederalIncomeTaxBracketsByYear, ChildTaxCreditByYear, SSWageBaseByYear",
+        "financial-health.json: case.tax_filing_status, profile.incomes, case.household"
+      ],
+      "sources": [
+        "IRS IR-2026-133, 5 Nov 2026 (Rev. Proc. 2026-35): https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts",
+        "SSA contribution and benefit base 2027: $192,300 (https://www.ssa.gov/oact/cola/cbb.html; 2027 COLA fact sheet https://www.ssa.gov/news/en/cola/factsheets/2027.html)"
+      ]
+    },
+    {
+      "id": "decision-card-from-cash",
+      "date": null,
+      "moment": "decision",
+      "source": "This family's plan",
+      "headline": "The plan's first move: pay down the 18% card from cash",
+      "what_happened": "The card carries $18,000 at 18% with $300 a month paid, about $270 of it interest; at that pace it is paid off in September 2039. The plan's first move pays it down from cash.",
+      "touches_this_family": [
+        "Accessible cash is $150,800, about 16 months of essential expenses against a recommended 8 to 9 months; cash above the reserve and the yearly vacation is $60,222.50 (persona D3).",
+        "Timothy is Growth and Melanie is Moderate; a plan should be explained so both can follow it (case.household, persona D5)."
+      ],
+      "where_in_the_data": [
+        "financial-health.json: score.top_moves, case.household (risk_profile)",
+        "persona.md: D3, D4, D5"
+      ]
+    }
+  ]
+}
